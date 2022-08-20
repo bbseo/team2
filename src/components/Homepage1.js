@@ -7,11 +7,12 @@ import {Link} from "react-router-dom"
 
 const HOME= styled.div`
     position: relative;
-    width: 90rem;
+    width: 105rem;
     height: 64rem;
     flex-grow: 0;
     background-color: #fff;
-    border 2px solid black;
+    //border 2px solid black;
+    margin: auto;
 `;
 const Logo = styled.img `
     
@@ -51,8 +52,8 @@ const Menu = styled.div`
 
   const Main = styled.img `
     
-    width: 90rem;
-    height: 25.1rem;
+    width: 105em;
+    height: 23.1rem;
     margin-top: 3rem;
   `;
 
@@ -60,7 +61,7 @@ const Menu = styled.div`
     display: block;
         
     width: 43.75rem;
-    height: 31.69rem;
+    height: 28rem;
     margin: auto;
     
 
@@ -70,8 +71,9 @@ const Menu = styled.div`
   position: absolute;
   width: 2rem;
   height: 2rem;
-  left: 51.15rem;
-  bottom: 17.5rem;
+  left: 58.7rem;
+  bottom: 21.3rem;
+//  border 1px solid black;
 
 
   `
