@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import logo from '../assets/logo.png';
 import main from '../assets/main.png';
-import map from '../assets/map.png';
+import map from '../assets/mapPin.png';
+import {Link} from "react-router-dom"
 
 const HOME= styled.div`
     position: relative;
@@ -56,14 +57,32 @@ const Menu = styled.div`
   `;
 
   const Map = styled.img`
-  display: block;
-    
-  width: 43.75rem;
-  height: 31.69rem;
-  margin: auto;
+    display: block;
+        
+    width: 43.75rem;
+    height: 31.69rem;
+    margin: auto;
     
 
   `
+
+  const NavHaeundae = styled.div`
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: 51.15rem;
+  bottom: 17.5rem;
+
+
+  `
+
+
+    
+  
+
+ 
+
+  
 
 
 
@@ -76,6 +95,9 @@ return(
         <Menu>Menu</Menu>
         <Main src={main}/>
         <Map src={map}/>
+       <Link to={"heaundae"}>
+        <NavHaeundae></NavHaeundae>
+       </Link>
 
         
         
