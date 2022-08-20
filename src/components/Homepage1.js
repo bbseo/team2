@@ -1,59 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import logo from '../assets/logo.png';
 import main from '../assets/main.png';
-import map from '../assets/mapPin.png';
+import map from '../assets/map.png';
 import {Link} from "react-router-dom"
+import pin from '../assets/pin.png';
+import Header from '../components/Header'
+import Footer from "./Footer";
 
 const HOME= styled.div`
     position: relative;
     width: 105rem;
-    height: 64rem;
+    height: 60.5rem;
     flex-grow: 0;
     background-color: #fff;
-    //border 2px solid black;
+    
     margin: auto;
+    border 0.15rem dashed #aebde2;
 `;
-const Logo = styled.img `
-    
-    position: absolute;
-    width: 10.44rem;
-    height: 4.81rem;
-    
-  `;
-
-const BusanTiltle = styled.div`
-    width: 45rem;
-    height: 4.812;
-    -webkit-text-stroke: 1px #000;
-    font-family: Sora;
-    font-size: 2.25rem;
-    text-align: center;
-    color: #8ca8f0;
-    position: absoulte;
-   
-    margin: auto;
-  `;
-const Menu = styled.div`
-    position: absolute;
-    width: 10.44rem;
-    height: 3.88rem;
-    padding: 0 52px 0 64px;
-    border-radius: 30px;
-    background-color: #aebde2;
-    top:0;
-    right:0;
-    font-family: Sora;
-    font-size: 2.5rem;
-    text-align: center;
-    color: #000;
-  `;
-  
 
   const Main = styled.img `
     
     width: 105em;
-    height: 23.1rem;
+    height: 20rem;
     margin-top: 3rem;
   `;
 
@@ -61,49 +29,83 @@ const Menu = styled.div`
     display: block;
         
     width: 43.75rem;
-    height: 28rem;
+    height: 23.5rem;
     margin: auto;
+    padding: 1rem;
     
 
   `
-
-  const NavHaeundae = styled.div`
+  const NameHaeundae = styled.div`
   position: absolute;
-  width: 2rem;
-  height: 2rem;
-  left: 58.7rem;
-  bottom: 21.3rem;
-//  border 1px solid black;
-
-
+  width: 6rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  left: 56rem;
+  bottom: 22.3rem;
+  color: white;
+  font-family: Sora;
+  font-weight: 100;
+  
   `
-
-
-    
+  const NavHaeundae = styled.img`
+  position: absolute;
+  display:block;
+  width: 2.3rem;
+  height: 2.3rem;
+  left: 57rem;
+  bottom: 20rem;
+    &:hover{
+    width: 3.5em;
+    height: 3.5rem;
+    left: 57rem;
+    bottom: 20rem;
+  `
+  const NameJingu = styled.div`
+  position: absolute;
+  width: 3em;
+  height: 3rem;
+  font-size: 1.5rem;
+  left: 51.1rem;
+  bottom: 20rem;
+  color: white;
+  font-family: Sora;
+  font-weight: 100;
   
-
- 
-
   
-
-
+  `
+  const NavJingu = styled.img`
+  position: absolute;
+  display:block;
+  width: 2.3rem;
+  height: 2.3rem;
+  left: 51rem;
+  bottom: 17.8rem;
+    &:hover{
+    width: 3.5em;
+    height: 3.5rem;
+    left: 51rem;
+    bottom: 17.8rem;
+  `
+  
 
 function HomePage1() {
+  const [showValue, setShowvalue]=useState(false);
+  const [showValue2, setShowvalue2]=useState(false);
 
 return(
     <HOME>
-        <Logo src={logo} />
-        <BusanTiltle>Busan Tasty Road</BusanTiltle>
-        <Menu>Menu</Menu>
+        <Header/>
         <Main src={main}/>
         <Map src={map}/>
        <Link to={"heaundae"}>
-        <NavHaeundae></NavHaeundae>
+         <NavHaeundae src={pin} onMouseOver={()=>setShowvalue(true)} onMouseOut={()=>setShowvalue(false)}/>
        </Link>
-
-        
-        
-
+        { showValue && <NameHaeundae>해운대구</NameHaeundae> }
+       <Link to={"jingu"}>
+         <NavJingu src={pin} onMouseOver={()=>setShowvalue2(true)} onMouseOut={()=>setShowvalue2(false)}/>
+       </Link>
+        { showValue2 && <NameJingu>진구</NameJingu> }
+      <Footer/>
 
     </HOME>
 )
