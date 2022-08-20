@@ -2,14 +2,17 @@ import './App.css';
 // import HomePage from './components/HomePage';
 // import Users from './components/Users';
 // import Jingu from './components/Jingu';
-import Foods from './components/Foods';
+// import Foods from './components/Foods';
+import HomePage1 from './components/Homepage1';
 function App() {
   return (
     <>
     {/* <Jingu /> */}
     {/* <Users /> */}
-    {/* <HomePage /> */}
-    <Foods/>
+   
+    {/* <Foods/> */}
+
+    <HomePage1/>
     </>
   );
 }
