@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import search from "../assets/search.PNG"
+import { Link } from "react-router-dom";
 
 const Head = styled.div`
     display: flex;
 `
 
 const Logo = styled.div`
+    text-decoration: none;
     display: flex;
     width: 101px;
     height: 44px;
-    margin: 48px 70px 45px 70px;
+    margin: 58px 70px 45px 126px;
     font-family: Inter;
     font-size: 36px;
     font-weight: normal;
@@ -31,6 +33,7 @@ const Logo = styled.div`
 // `
 
 const Input = styled.input`
+    outline: none;
     font-size:15px;
     height: 44px;
     width:200px;
@@ -40,16 +43,19 @@ const Input = styled.input`
     BORDER-RIGHT: medium none;
     BORDER-TOP: medium none;
     margin-left: auto;
-    margin-top: 50px;
+    margin-top: 57px;
+    margin-right: 141px
     text-align: center;
+    
 `
 const Search = styled.img`
     width: 30px;
     height: 30px;
-    margin-top: 60px;
-    margin-right: 70px;
+    margin-top: 77px;
+    margin-right: 144px;
     padding-left: 10px;
     cursor: pointer;
+
 `
 
 
@@ -58,7 +64,7 @@ const Search = styled.img`
 function Header() {
     return(
             <Head>
-                <Logo onClick={(e) => console.log('로고')}>부산맛집</Logo>
+                <Link to={"/"}><Logo onClick={(e) => console.log('로고')}>맛집</Logo></Link>
                 <Input placeholder="검색"/>
                 <Search src={search} onClick={(e) => console.log('검색')}></Search>
             </Head>
