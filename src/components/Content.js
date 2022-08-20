@@ -56,7 +56,7 @@ const Yeongdo = styled.img`
 function Content() {
     return(
         <MapPin>
-            <Haeundae src={pin} onClick={(e) => {console.log('해운대구')}}/>
+            <Haeundae src={pin} onClick={(e) => {console.log('해운대')}}/>
             <Jingu src={pin} onClick={(e) => {console.log('진구')}}/>
             <Namgu src={pin} onClick={(e) => {console.log('남구')}}/>
             <Yeongdo src={pin} onClick={(e) => {console.log('영도구')}}/>

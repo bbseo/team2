@@ -31,9 +31,9 @@ const Logo = styled.div`
 // `
 
 const Input = styled.input`
-    font-size:20px;
+    font-size:15px;
     height: 44px;
-    width:250px;
+    width:200px;
     display: flex;
     BORDER-BOTTOM: 1px solid #A4B5E1;
     BORDER-LEFT: medium none;
@@ -44,9 +44,9 @@ const Input = styled.input`
     text-align: center;
 `
 const Search = styled.img`
-    width: 40px;
-    height: 40px;
-    margin-top: 50px;
+    width: 30px;
+    height: 30px;
+    margin-top: 60px;
     margin-right: 70px;
     padding-left: 10px;
     cursor: pointer;
