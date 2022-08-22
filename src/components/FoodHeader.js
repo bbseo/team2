@@ -7,8 +7,12 @@ const HeaderContainer = styled.div`
     display:flex;
     width: 105rem;
     height: 10rem;
-    margin-bottom: 3.125rem;
-    border-bottom: 0.1875rem dashed #aebde2;
+    margin-bottom: 0;
+    border: 0.1875rem dashed #aebde2;
+    border-bottom: 0;
+    margin-right:auto;
+    margin-left:auto;
+    padding-bottom: 0.5rem;
 `;
 
 const Logo = styled.div`

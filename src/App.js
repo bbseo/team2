@@ -1,9 +1,22 @@
 import './App.css';
 import MainHome from './components/MainHome';
 import HomeApp from './components/AppHome';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Heaundae from './components/Haeundae';
 import Jingu from './components/Jingu';
+import FoodHeader from './components/FoodHeader';
+
+const Layout = () => {
+  return (
+    <div>
+      <FoodHeader />
+      <Outlet />
+      
+
+    </div>
+  )
+}
+
 function App() {
   return (
     <>
@@ -14,13 +27,15 @@ function App() {
 
     <Router>
       <Routes>
-      <Route path='/' element={<MainHome/>} />
-      <Route path='/heaundae' element={<Heaundae />} />
-      <Route path='/jingu' element={<Jingu />} />
+      <Route index element={<MainHome/>} />
+      <Route path='/' element={<Layout/>}>
+        <Route path='/heaundae' element={<Heaundae />} />
+        <Route path='/jingu' element={<Jingu />} />
+      </Route>
       </Routes>
     </Router>
 
-   
+    
    
     </>
   );

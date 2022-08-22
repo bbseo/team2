@@ -40,7 +40,7 @@ function Haeundae() {
     return(
         <div>
             <Container>
-                <FoodHeader/>
+                {/* <FoodHeader/> */}
                 <HaeundaeLogo src={haeundaeLogo}/>
                 <ImgContainer>
                     <FoodImg src={meat}/>
