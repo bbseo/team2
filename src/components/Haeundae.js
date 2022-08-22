@@ -2,15 +2,13 @@ import React, {useState} from "react";
 import dataFoods from '../dataBase/FoodLists.json';
 import styled from "styled-components";
 import haeundae from "../assets/haeundae.PNG"
-import meat from "../assets/meat.jpg"
 import Footer from "./Footer";
-import sss from "../assets/스시.png"
 import Imfo from "./Imfo";
+import FoodHeader from './FoodHeader';
 
 const Container= styled.div`
     position: relative;
-    width: 80rem;
-   
+    width: 80rem; 
     background-color: #fff;
     border 0.2rem dashed #aebde2;
     margin: auto;
@@ -47,7 +45,7 @@ const FoodImg = styled.img`
 `
 
 
-function Foods() {
+function Haeundae() {
 
 const [foodsLists, setTest] = useState(dataFoods);
 
@@ -82,31 +80,36 @@ const testFood = food.map((test)=>(
 
   
   
-const [PopShow, setPopshow]=useState(false);
-  
+const [PopShow, setPopshow ]=useState(false);
+
 
 
 
     return(
        
       <div>
-      {!PopShow && <Container>
-          
+     {!PopShow && <Container>
+        
+          <FoodHeader/>
           <HaeunLogo src={haeundae}/>
           <ImgContainer>
               <FoodImg src={testFood[0]} onClick= {() =>(setPopshow(true))}/>
               <FoodImg src={testFood[1]}/>
               <FoodImg src={testFood[2]}/>
           </ImgContainer>
+
           <ImgContainer>
               <FoodImg src={testFood[3]}/>
               <FoodImg src={testFood[4]}/>
               <FoodImg src={testFood[5]}/>
           </ImgContainer>
+
           <Footer/>
 
       </Container>}
-      {PopShow && <Imfo/>}
+
+      {PopShow && <Imfo setPopshow={setPopshow}/>}
+      
    
   </div>
     
@@ -117,4 +120,4 @@ const [PopShow, setPopshow]=useState(false);
 
 
 
-export default Foods;
+export default Haeundae;

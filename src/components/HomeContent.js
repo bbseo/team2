@@ -41,9 +41,9 @@ const NameHaeundae = styled.div`
   font-size: 1.5rem;
   left: 63.5rem;
   bottom: 28.5rem;
-  color: white;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
 
@@ -70,9 +70,9 @@ const NameNamgu = styled.div`
   font-size: 1.5rem;
   left: 60rem;
   bottom: 19.5rem;
-  color: white;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
 const Jingu = styled.img`
@@ -98,9 +98,9 @@ const NameJingu = styled.div`
   font-size: 1.5rem;
   left: 55.2rem;
   bottom: 23.3rem;
-  color: white;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
 
@@ -127,9 +127,9 @@ const NameYeongdo = styled.div`
   font-size: 1.5rem;
   left: 56.8rem;
   bottom: 13.5rem;
-  color: white;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
    
