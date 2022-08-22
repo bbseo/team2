@@ -5,7 +5,7 @@ import styled from "styled-components";
 import {Link} from "react-router-dom"
 const HeaderContainer = styled.div`
     display:flex;
-    width: 105rem;
+    width:  80rem;
     height: 10rem;
     margin-bottom: 0;
     border: 0.1875rem dashed #aebde2;
@@ -56,7 +56,7 @@ const BusanTiltle = styled.div`
     font-family: 'Nanum Brush Script', cursive;
     font-size: 2.25rem;
     margin-top: 3.4375rem;
-    margin-left: 31.25rem;
+    margin-left: 17.5rem;
     color: #8ca8f0;
 
 `;

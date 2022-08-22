@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Container= styled.div`
     position: relative;
-    width: 105rem;
+    width: 80rem;
    
     background-color: #fff;
     border 0.2rem dashed #aebde2;
@@ -23,7 +23,7 @@ const JinguLogo = styled.img`
     ` ;
 const ImgContainer = styled.div`
     display: inline-block;
-    width: 105rem;
+    width: 80rem;
     height: 15rem;
     text-align: center;
     

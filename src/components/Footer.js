@@ -4,7 +4,7 @@ import boat from "../assets/boat.png"
 
 
 const FooterContainer = styled.div`
-width: 105rem;
+width: 80rem;
 height: 6rem;
 border-top: 0.6rem double #aebde2;
 

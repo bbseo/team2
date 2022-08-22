@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom
 import Heaundae from './components/Haeundae';
 import Jingu from './components/Jingu';
 import FoodHeader from './components/FoodHeader';
-
+import Imfo from './components/Imfo';
+import WishList from './components/WishList';
 const Layout = () => {
   return (
     <div>
@@ -25,7 +26,7 @@ function App() {
    
     {/* <Foods/> */}
 
-    <Router>
+    {/* <Router>
       <Routes>
       <Route index element={<MainHome/>} />
       <Route path='/' element={<Layout/>}>
@@ -33,7 +34,10 @@ function App() {
         <Route path='/jingu' element={<Jingu />} />
       </Route>
       </Routes>
-    </Router>
+    </Router> */}
+
+    {/* <Imfo /> */}
+    <WishList />
 
     
    
