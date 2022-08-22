@@ -113,7 +113,7 @@ const BlackHeart = styled.img`
 
 
 
-function Imfo({setPopshow}) {
+function PopImfo({setPopshow}) {
 
         const [foodsLists, setTest] = useState(dataFoods);
             let guGun = '해운대구';
@@ -155,4 +155,4 @@ function Imfo({setPopshow}) {
 
 
 
-export default Imfo;
+export default PopImfo;

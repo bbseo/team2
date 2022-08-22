@@ -3,7 +3,7 @@ import dataFoods from '../dataBase/FoodLists.json';
 import styled from "styled-components";
 import haeundae from "../assets/haeundae.PNG"
 import Footer from "./Footer";
-import Imfo from "./Imfo";
+import PopImfo from "./PopImfo";
 import FoodHeader from './FoodHeader';
 
 const Container= styled.div`
@@ -108,7 +108,7 @@ const [PopShow, setPopshow ]=useState(false);
 
       </Container>}
 
-      {PopShow && <Imfo setPopshow={setPopshow}/>}
+      {PopShow && <PopImfo setPopshow={setPopshow}/>}
       
    
   </div>
