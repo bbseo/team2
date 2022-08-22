@@ -43,10 +43,18 @@ const FoodImg = styled.img`
     border-radius: 50%;
 `
 
+const Testdh = styled.div`
+    width : 100rem;
+    hight: 10rem;
+    background : black;
+    color : white;
+`
 
 function Foods() {
 
 const [foodsLists, setTest] = useState(dataFoods);
+const [testjs , setTestjs] = useState(false);
+const [testjs1 , setTestjs1] = useState(false);
 
 // console.log(foodsLists)
 
@@ -56,8 +64,10 @@ let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
 )
 
-// const food = foodsLists.map(
-//     (foodlist)  =>(foodlist.구군 =='해운대구') ? 
+
+// onClick 
+// const food2 = foodsLists.map(
+//     (foodlist)  =>(foodlist.구군 == guGun) ? 
 //   (<li> 
 //     <img src={foodlist.이미지URL}></img> <br />
 //     이름: {foodlist.콘텐츠명} <br /> 
@@ -68,14 +78,28 @@ let food = foodsLists.filter(
 //     전화번호: {foodlist.연락처}  
 //   </li>) : (<></>) 
 //   )
-  
+
+
 
 const testFood = food.map((test)=>(
   test.썸네일이미지URL
 ))
 
-console.log(food)
+const foodTest = food.map((test)=>(
+    <li> 
+        <img src={test.이미지URL}></img> <br />
+        이름: {test.콘텐츠명} <br /> 
+        소개: {test.상세내용} <br /> 
+        대표매뉴: {test.대표메뉴} <br /> 
+        주소: {test.주소} <br /> 
+        운영시간: {test['운영 및 시간']}<br />   
+        전화번호: {test.연락처}  
+    </li>
+  ))
 
+  
+
+console.log(foodTest[0])
   
   
   
@@ -85,23 +109,29 @@ console.log(food)
 
     return(
       <div>
-      <Container>
-          <Header/>
-          <HaeunLogo src={haeundae}/>
-          <ImgContainer>
-              <FoodImg src={testFood[0]}/>
-              <FoodImg src={testFood[1]}/>
-              <FoodImg src={testFood[2]}/>
-          </ImgContainer>
-          <ImgContainer>
-              <FoodImg src={testFood[3]}/>
-              <FoodImg src={testFood[4]}/>
-              <FoodImg src={testFood[5]}/>
-          </ImgContainer>
-          <Footer/>
 
-      </Container>
-   
+    <Container onClick={() => setTestjs(!testjs)}>
+        <Header/>
+        <HaeunLogo src={haeundae}/>
+        <ImgContainer>
+            <FoodImg src={testFood[0]} onClick={() => setTestjs(!testjs)}  />
+            {/* {testjs && <Testdh>{foodTest[0]} </Testdh>} */}
+            <FoodImg src={testFood[1]} onClick={() => setTestjs1(!testjs1)} />
+            <FoodImg src={testFood[2]}/>
+        </ImgContainer>
+        <ImgContainer>
+            <FoodImg src={testFood[3]}/>
+            <FoodImg src={testFood[4]}/>
+            <FoodImg src={testFood[5]}/>
+        </ImgContainer>
+
+
+        {testjs && <Testdh>{foodTest[0]} </Testdh>}
+        {testjs1 && <Testdh>{foodTest[1]} </Testdh>}
+
+        <Footer/>
+    </Container>
+  
   </div>
     )
 }
