@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import jingu from "../assets/jingu.PNG"
 import meat from "../assets/meat.jpg"
-import Header from "./FoodHeader";
+import FoodHeader from "./FoodHeader";
 import Footer from "./Footer";
 
 const Container= styled.div`
@@ -43,11 +43,11 @@ const FoodImg = styled.img`
 
 
 
-function TestContent() {
+function Jingu() {
     return(
         <div>
             <Container>
-                <Header/>
+                <FoodHeader/>
                 <JinguLogo src={jingu}/>
                 <ImgContainer>
                     <FoodImg src={meat}/>
@@ -64,7 +64,7 @@ function TestContent() {
                     <FoodImg src={meat}/>
                     <FoodImg src={meat}/>
                 </ImgContainer>
-                <Footer/>
+                <FoodHeader/>
 
             </Container>
          
@@ -72,4 +72,4 @@ function TestContent() {
     )
 }
 
-export default TestContent;
+export default Jingu;

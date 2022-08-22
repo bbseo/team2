@@ -57,7 +57,7 @@ const BusanTiltle = styled.div`
 
 `;
 
-function Header2() {
+function FoodHeader() {
 
 return(
     
@@ -74,4 +74,4 @@ return(
 
 }
 
-export default Header2;
+export default FoodHeader;

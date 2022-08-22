@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import haeundaeLogo from "../assets/haeundae.PNG"
 import meat from "../assets/meat.jpg"
-import Header from "./FoodHeader";
+import FoodHeader from "./FoodHeader";
 import Footer from "./Footer";
 
 const Container= styled.div`
@@ -36,11 +36,11 @@ const FoodImg = styled.img`
 
 
 
-function TestContent() {
+function Haeundae() {
     return(
         <div>
             <Container>
-                <Header/>
+                <FoodHeader/>
                 <HaeundaeLogo src={haeundaeLogo}/>
                 <ImgContainer>
                     <FoodImg src={meat}/>
@@ -65,4 +65,4 @@ function TestContent() {
     )
 }
 
-export default TestContent;
+export default Haeundae;
