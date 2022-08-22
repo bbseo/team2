@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import main from '../assets/main.png';
-import map from '../assets/map.png';
+import map from '../assets/map2.png';
 import {Link} from "react-router-dom"
 import pin from '../assets/pin.png';
-import Header from '../components/Header'
+import Header from './FoodHeader'
 import Footer from "./Footer";
 
 const HOME= styled.div`
@@ -42,10 +42,9 @@ const HOME= styled.div`
   font-size: 1.5rem;
   left: 56rem;
   bottom: 22.3rem;
-  color: white;
+  color: black;
   font-family: Sora;
   font-weight: 100;
-  
   `
   const NavHaeundae = styled.img`
   position: absolute;
@@ -53,27 +52,14 @@ const HOME= styled.div`
   width: 2.3rem;
   height: 2.3rem;
   left: 57rem;
-  bottom: 20rem;
+  bottom: 12rem;
     &:hover{
     width: 3.5em;
     height: 3.5rem;
     left: 57rem;
-    bottom: 20rem;
+    bottom: 12rem;
   `
-  const NameJingu = styled.div`
-  position: absolute;
-  width: 3em;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 51.1rem;
-  bottom: 20rem;
-  color: white;
-  font-family: Sora;
-  font-weight: 100;
-  
-  
-  
-  `
+
   const NavJingu = styled.img`
   position: absolute;
   display:block;
@@ -87,12 +73,23 @@ const HOME= styled.div`
     left: 51rem;
     bottom: 17.8rem;
   `
-  
+
+  const NameJingu = styled.div`
+  position: absolute;
+  width: 3em;
+  height: 3rem;
+  font-size: 1.5rem;
+  left: 51.1rem;
+  bottom: 20rem;
+  color: black;
+  font-family: Sora;
+  font-weight: 100;
+  `
 
 function HomePage1() {
+  // const [showValue, setShowvalue]=useState(false);
   const [showValue, setShowvalue]=useState(false);
-  const [showValue2, setShowvalue2]=useState(false);
-  
+
 return(
     <HOME>
         <Header/>
@@ -103,9 +100,9 @@ return(
        </Link>
         { showValue && <NameHaeundae>해운대구</NameHaeundae> }
        <Link to={"jingu"}>
-         <NavJingu src={pin} onMouseOver={()=>setShowvalue2(true)} onMouseOut={()=>setShowvalue2(false)}/>
+         <NavJingu src={pin} onMouseOver={()=>setShowvalue(true)} onMouseOut={()=>setShowvalue(false)}/>
        </Link>
-        { showValue2 && <NameJingu>진구</NameJingu> }
+        { showValue && <NameJingu>진구</NameJingu> }
       <Footer/>
 
     </HOME>
