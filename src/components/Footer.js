@@ -2,20 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import boat from "../assets/boat.png"
 
+
+const FooterContainer = styled.div`
+width: 105rem;
+height: 6rem;
+border-top: 0.6rem double #aebde2;
+
+`
+
 const Boat = styled.img`
-    width: 40px;
-    height: 45px;
-    margin: 0px 0 11px 64px;
+    width: 2.5rem;
+    height: 2rem;
+    margin: 0px 0 0.69rem 0px;
     display: flex;
 `
 const TeamName = styled.span`
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
-    width: 300px;
-    height: 11px;
-    margin: 0 7px 15px 64px;
+    width: 18.75rem;
+    height: 0.53rem;
+    margin: 0 0.43rem 0.94rem 0px;
     font-family: Inter;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 100;
     font-stretch: normal;
     font-style: normal;
@@ -27,11 +35,11 @@ const TeamName = styled.span`
 
 const Name = styled.span`
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    width: 35px;
-    height: 11px;
-    margin: 15px 8px 0 64px;
+    width: 2.187rem;
+    height: 0.53rem;
+    margin: 0.8rem 0.5rem 0 0p;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 100;
     font-stretch: normal;
     font-style: normal;
@@ -41,15 +49,15 @@ const Name = styled.span`
     color: #000;
 `
 
-function Footer() {
+function TestFooter() {
     return(
-        <div>
+        <FooterContainer>
             <Boat src={boat} />
             <TeamName>DouZone&nbsp;&nbsp;Team2&nbsp;&nbsp;Mini Project</TeamName>
             <Name>황동하&nbsp;&nbsp;김재선&nbsp;&nbsp;배병서&nbsp;&nbsp;이광석</Name>
 
-        </div>
+        </FooterContainer>
     )
 }
 
-export default Footer;
+export default TestFooter;
