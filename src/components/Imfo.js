@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import dataFoods from '../dataBase/FoodLists.json';
+import GlobalStyle from "./GlobalStyle";
 
 
 
@@ -100,11 +101,11 @@ function Imfo() {
 
     return(
         <>
-        
+        <GlobalStyle/>  
         <Container>
             <PopTitile>Busan Tasty Road</PopTitile>
-            <Popimg src= {testFood[2]}/>
-            <PopImfo>상호명:{testName[2]}</PopImfo>
+            <Popimg src= {testFood[0]}/>
+            <PopImfo>상호명:{testName[0]}</PopImfo>
 
         </Container>
         </>

@@ -5,6 +5,7 @@ import haeundae from "../assets/haeundae.PNG"
 import meat from "../assets/meat.jpg"
 import Footer from "./Footer";
 import sss from "../assets/스시.png"
+import Imfo from "./Imfo";
 
 const Container= styled.div`
     position: relative;
@@ -77,22 +78,23 @@ const testFood = food.map((test)=>(
   test.썸네일이미지URL
 ))
 
-console.log(food)
+
 
   
   
-  
+const [PopShow, setPopshow]=useState(false);
   
 
 
 
     return(
+       
       <div>
-      <Container>
+      {!PopShow && <Container>
           
           <HaeunLogo src={haeundae}/>
           <ImgContainer>
-              <FoodImg src={testFood[0]}/>
+              <FoodImg src={testFood[0]} onClick= {() =>(setPopshow(true))}/>
               <FoodImg src={testFood[1]}/>
               <FoodImg src={testFood[2]}/>
           </ImgContainer>
@@ -103,9 +105,12 @@ console.log(food)
           </ImgContainer>
           <Footer/>
 
-      </Container>
+      </Container>}
+      {PopShow && <Imfo/>}
    
   </div>
+    
+   
     )
 }
 

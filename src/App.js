@@ -26,7 +26,7 @@ function App() {
    
     {/* <Foods/> */}
 
-    {/* <Router>
+    <Router>
       <Routes>
       <Route index element={<MainHome/>} />
       <Route path='/' element={<Layout/>}>
@@ -34,9 +34,9 @@ function App() {
         <Route path='/jingu' element={<Jingu />} />
       </Route>
       </Routes>
-    </Router> */}
+    </Router>
 
-    <Imfo />
+    {/* <Imfo /> */}
     {/* <WishList /> */}
 
     
