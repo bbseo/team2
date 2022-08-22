@@ -72,6 +72,7 @@ const HOME= styled.div`
   font-weight: 100;
   
   
+  
   `
   const NavJingu = styled.img`
   position: absolute;
@@ -91,7 +92,7 @@ const HOME= styled.div`
 function HomePage1() {
   const [showValue, setShowvalue]=useState(false);
   const [showValue2, setShowvalue2]=useState(false);
-
+  
 return(
     <HOME>
         <Header/>
