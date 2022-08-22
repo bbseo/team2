@@ -1,17 +1,16 @@
 import React from "react";
-import Header from "./Header";
-import Content from "./Content";
-import Footer from "./Footer"
-import styled from "styled-components";
+import HomeHeader from "./HomeHeader";
+import HomeContent from "./HomeContent";
+import HomeFooter from "./HomeFooter"
 
 
 
 function MainHome() {
     return(
         <div>
-            <Header />
-            <Content />
-            <Footer />
+            <HomeHeader/>
+            <HomeContent />
+            <HomeFooter />
         </div>
     )
 }

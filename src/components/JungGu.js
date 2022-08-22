@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import dataFoods from '../dataBase/FoodLists.json';
 import styled from "styled-components";
-import haeundae from "../assets/haeundae.PNG"
-import meat from "../assets/meat.jpg"
+import JungGu from "../assets/junggu.PNG"
 import FoodHeader from "./FoodHeader";
 import Footer from "./Footer";
 
@@ -18,12 +17,14 @@ const Container= styled.div`
     
 `;
   
-const HaeunLogo = styled.img`
+const JungguLogo = styled.img`
     display:block;
     width: 45rem;
     height: 31.25rem;
     margin: auto;
     ` ;
+
+    
 const ImgContainer = styled.div`
     display: inline-block;
     width: 105rem;
@@ -50,7 +51,7 @@ const [foodsLists, setTest] = useState(dataFoods);
 
 // console.log(foodsLists)
 
-let guGun = '해운대구';
+let guGun = '부산중구';
 
 let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
@@ -87,7 +88,7 @@ console.log(food)
       <div>
       <Container>
           <FoodHeader/>
-          <HaeunLogo src={haeundae} />
+          <JungguLogo src={junggu}/>
           <ImgContainer>
               <FoodImg src={testFood[0]}/>
               <FoodImg src={testFood[1]}/>
