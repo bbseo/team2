@@ -6,7 +6,6 @@ import {Link} from "react-router-dom"
 import pin from '../assets/pin.png';
 import Header from './FoodHeader'
 import Footer from "./Footer";
-import Logo from "./Logo";
 
 const HOME= styled.div`
     position: relative;
@@ -96,7 +95,7 @@ return(
         <Header/>
         <Main src={main}/>
         <Map src={map}/>
-       <Link to={"heaundae"}>
+       <Link to={"haeundae"}>
          <NavHaeundae src={pin} onMouseOver={()=>setShowvalue(true)} onMouseOut={()=>setShowvalue(false)}/>
        </Link>
         { showValue && <NameHaeundae>해운대구</NameHaeundae> }
@@ -105,7 +104,6 @@ return(
        </Link>
         { showValue && <NameJingu>진구</NameJingu> }
       <Footer/>
-      <Logo />
 
     </HOME>
 )

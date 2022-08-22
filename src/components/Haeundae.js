@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-import dataFoods from '../dataBase/FoodLists.json';
+import dataFoods from "../database/FoodLists.json"
 import styled from "styled-components";
 import haeundae from "../assets/haeundae.PNG"
 import meat from "../assets/meat.jpg"
-import FoodHeader from "./FoodHeader";
 import Footer from "./Footer";
-
+import sss from "../assets/스시.png"
+import Imfo from "./Imfo";
 
 const Container= styled.div`
     position: relative;
-    width: 105rem;
+    width: 80rem;
    
     background-color: #fff;
     border 0.2rem dashed #aebde2;
@@ -21,14 +21,15 @@ const Container= styled.div`
 const HaeunLogo = styled.img`
     display:block;
     width: 45rem;
-    height: 31.25rem;
+    height: 29.25rem;
     margin: auto;
     ` ;
 const ImgContainer = styled.div`
     display: inline-block;
-    width: 105rem;
+    width: 80rem;
     height: 15rem;
     text-align: center;
+    margin-top: 1rem;
     
     
 
@@ -39,14 +40,17 @@ const ImgContainer = styled.div`
 const FoodImg = styled.img`
     width: 10rem;
     height: 10rem;
-    padding: 3rem 5rem;
+   
     border-radius: 50%;
+    border  solid black;
+    margin-right: 2rem;
 `
 
 
 function Foods() {
 
 const [foodsLists, setTest] = useState(dataFoods);
+
 
 // console.log(foodsLists)
 
@@ -74,22 +78,23 @@ const testFood = food.map((test)=>(
   test.썸네일이미지URL
 ))
 
-console.log(food)
+
 
   
   
-  
+const [PopShow, setPopshow]=useState(false);
   
 
 
 
     return(
+       
       <div>
-      <Container>
-          <FoodHeader/>
-          <HaeunLogo src={haeundae} />
+      {!PopShow && <Container>
+          
+          <HaeunLogo src={haeundae}/>
           <ImgContainer>
-              <FoodImg src={testFood[0]}/>
+              <FoodImg src={testFood[0]} onClick= {() =>(setPopshow(true))}/>
               <FoodImg src={testFood[1]}/>
               <FoodImg src={testFood[2]}/>
           </ImgContainer>
@@ -100,9 +105,12 @@ console.log(food)
           </ImgContainer>
           <Footer/>
 
-      </Container>
+      </Container>}
+      {PopShow && <Imfo/>}
    
   </div>
+    
+   
     )
 }
 

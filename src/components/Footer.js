@@ -4,7 +4,7 @@ import boat from "../assets/boat.png"
 
 
 const FooterContainer = styled.div`
-width: 105rem;
+width: 80rem;
 height: 6rem;
 border-top: 0.6rem double #aebde2;
 
@@ -49,7 +49,7 @@ const Name = styled.span`
     color: #000;
 `
 
-function TestFooter() {
+function Footer() {
     return(
         <FooterContainer>
             <Boat src={boat} />
@@ -60,4 +60,4 @@ function TestFooter() {
     )
 }
 
-export default TestFooter;
+export default Footer;

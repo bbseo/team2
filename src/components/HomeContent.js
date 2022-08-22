@@ -144,7 +144,7 @@ function HomeContent() {
     const [showValue4, setShowvalue4]=useState(false);
     return(
         <MapPin>
-            <Link to={"heaundae"}> 
+            <Link to={"haeundae"}> 
                 <Haeundae src={pin} onClick={(e) => {console.log('해운대')}} onMouseOver={()=>setShowvalue(true)} onMouseOut={()=>setShowvalue(false)}/>
             </Link>
             { showValue && <NameHaeundae>해운대구</NameHaeundae> }
@@ -152,11 +152,11 @@ function HomeContent() {
                 <Jingu src={pin} onClick={(e) => {console.log('진구')}} onMouseOver={()=>setShowvalue2(true)} onMouseOut={()=>setShowvalue2(false)}/>
             </Link>
             { showValue2 && <NameJingu>진구</NameJingu> }
-            <Link to={"heaundae"}> 
+            <Link to={"haeundae"}> 
                 <Namgu src={pin} onClick={(e) => {console.log('남구')}} onMouseOver={()=>setShowvalue3(true)} onMouseOut={()=>setShowvalue3(false)}/>
             </Link>
             { showValue3 && <NameNamgu>남구</NameNamgu> }
-            <Link to={"heaundae"}>
+            <Link to={"haeundae"}>
                 <Yeongdo src={pin} onClick={(e) => {console.log('영도구')}} onMouseOver={()=>setShowvalue4(true)} onMouseOut={()=>setShowvalue4(false)}/>
             </Link>
             { showValue4 && <NameYeongdo>영도구</NameYeongdo> }
