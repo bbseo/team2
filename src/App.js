@@ -36,8 +36,8 @@ function App() {
       </Routes>
     </Router> */}
 
-    {/* <Imfo /> */}
-    <WishList />
+    <Imfo />
+    {/* <WishList /> */}
 
     
    
