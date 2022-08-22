@@ -44,7 +44,7 @@ const Popimg = styled.img`
 
 `;
 
-const PopImfo= styled.div`
+const PopImfoWindow= styled.div`
    
     width: 20rem;
     height: 16rem;
@@ -136,7 +136,7 @@ function PopImfo({setPopshow}) {
         <Container>
             <PopTitile>Busan Tasty Road</PopTitile>
             <Popimg src= {testFood[0]}/>
-            <PopImfo>상호명:{testName[0]}</PopImfo>
+            <PopImfoWindow>상호명:{testName[0]}</PopImfoWindow>
             
             <Close onClick={()=>{setPopshow(false)}}>Back</Close>
             <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange)}}/> Add Wish</AddWishbox>
