@@ -4,16 +4,11 @@ import dataFoods from '../dataBase/FoodLists.json';
 import GlobalStyle from "./GlobalStyle";
 import Redheart from '../assets/Redheart.png'
 import Blackheart from '../assets/blackHeart.png'
-import { render } from "@testing-library/react";
-
-
-
 
 const Container= styled.div`
     position: relative;
     width: 25rem;
     height: 40rem;
-   
     background-color: #fff;
     border 0.2rem solid #aebde2;
     margin: auto;
@@ -21,6 +16,7 @@ const Container= styled.div`
     border-radius: 20%;
     
 `;
+
 const PopTitile = styled.div`
     width: 20rem;
     height: 3rem;
@@ -39,26 +35,19 @@ const Popimg = styled.img`
     height: 12rem;
     margin: auto;
     margin-top: 2rem;
-    
     border-radius: 5%;
-    
-
 `;
 
 const PopImfoWindow= styled.div`
-   
     width: 20rem;
     height: 16rem;
     margin: auto;
     margin-top: 2rem;
     border-top: 0.2em solid #aebde2;
     border-bottom: 0.1em solid #aebde2;
-
-`
-;
+`;
 
 const Close= styled.button`
-
     width: 15rem;
     height: 2rem;
     margin-left: 5rem;
@@ -71,21 +60,17 @@ const Close= styled.button`
     border: 0;
     border-radius: 20%;
     cursor: pointer;
+`;
 
-`
-;
 const Wish= styled.div`
-
     width: 20rem;
     height: 16rem;
-    
     margin: auto;
     margin-top: 2rem;
     border-top: 0.2em solid #aebde2;
     border-bottom: 0.1em solid #aebde2;
+`;
 
-`
-;
 const AddWishbox =styled.div`
     position: absolute;
     width: 10rem;
@@ -98,94 +83,62 @@ const AddWishbox =styled.div`
     text-align:center;
     bottom: 2rem;
     left: 15rem;
-    
-    
-`
+`;
 
 const RedHeart = styled.img`
     width:1rem;
     height:1rem;
 `;
-const BlackHeart = styled.img`
 
+const BlackHeart = styled.img`
     width:1rem;
     height:1rem;
 `;
 
+const List = styled.li`
+    list-style: none;
+`;
 
+const Text = styled.p`
+    font-family: 'Dalseo';
+`;
 
-function PopImfo({setPopshow, sendId}) {
-
-        const [foodsLists, setTest] = useState(dataFoods);
-            const checkId = sendId;    
-            let guGun = '해운대구';
-
-         
-
-        let food = foodsLists.filter(
-            (foodlist) => (foodlist.구군 == guGun) && (foodlist.콘텐츠ID == checkId)
-            )
-
-
-
-            
+function PopImfo({setPopshow, sendId, setWishid}) {
+    const [foodsLists, setTest] = useState(dataFoods);
+    const checkId = sendId;
     
-
-
-        // const testFood = food.map((test)=>(
-        //         test.썸네일이미지URL
-        //     ))
-        // const testName= food.map((test)=>(
-        //         test.콘텐츠명
-        //     ))
+    let food = foodsLists.filter(
+        (foodlist) => (foodlist.콘텐츠ID == checkId)
+        )
+        const foodFullList = food.map(
+            (foodlist)  =>(  
+          <List> 
+                <Popimg  src={foodlist.이미지URL} />
+                <Text>제목 : {foodlist.콘텐츠명} </Text> 
+                <Text>대표메뉴 : {foodlist.대표메뉴}</Text> 
+                <Text>주소 : {foodlist.주소}</Text> 
+                <Text>운영 및 시간 :{foodlist['운영 및 시간']}</Text> 
+                <Text>연락처 : {foodlist.연락처} </Text>
+          </List>)
+          )
         
-        const [heartChange, setHeartChange]=useState(true);
+        const [heartChange, setHeartChange] = useState(true);
 
- console.log(food)
-
-const foodFullList = food.map(
-    (foodlist, 콘텐츠ID)  =>(  
-  <li key={콘텐츠ID}> 
-    <Popimg  src={foodlist.이미지URL} /> <br />
-    <span>제목 : {foodlist.콘텐츠명} </span> <br />
-    <span>대표매뉴 : {foodlist.대표메뉴}</span> <br />
-    <span>주소 : {foodlist.주소}</span> <br />
-    <span>운영 및 시간 :{foodlist['운영 및 시간']}</span> <br />
-    <span>연락처 : {foodlist.연락처} </span>
-  </li>)
-  )
-
-    // console.log(foodFullList)
-    
-
+        setWishid(checkId);
 
     return(
         <>
         <GlobalStyle/>  
+
         <Container>
             <PopTitile>Busan Tasty Road</PopTitile>
-            {/* <Popimg src= {testFood[0]}/>
-            <PopImfoWindow>{testName[0]}</PopImfoWindow> */}
             {foodFullList}
-
-
-
-           <Close onClick={()=>{setPopshow(false)}}>Back</Close>
+            
+            <Close onClick={()=>{setPopshow(false)}}>Back</Close>
             <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange)}}/> Add Wish</AddWishbox>
-            
-            
-
         </Container>
-      
         </>
     )
-    
-
-
-
-
 };
-
-
 
 export default PopImfo;

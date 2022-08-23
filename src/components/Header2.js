@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import {MdSearch} from 'react-icons/md'
 import logo from "../assets/logo.png"
 import { Link } from "react-router-dom"
-import SearchPage from "./SearchPage";
-
+ 
 const Logo = styled.div`
     display: inline-block;
     width: 200px;
@@ -62,31 +61,20 @@ const Input = styled.input`
 
 
 
-function HomeHeader() {
 
-    const [foodSearch, setFoodSearch] = useState('');
+
+
+function Header2() {
 
     return(
-        <div>
         <Link to={"/"}>
             <Logo><Dynamic>Dynamic</Dynamic><Boat src={logo}/><Busan>Busan</Busan></Logo>
-        </Link>
-        <SearchBox>
-            <Input placeholder="검색" onChange={(e) => setFoodSearch(e.target.value)} />
-            <Link to={"/search"} state={foodSearch}>
-                <MdSearch size={30} className='search' />
-            </Link>
-        </SearchBox>
+          
+            <SearchBox><Input placeholder="검색" /><MdSearch size={30} className='search'/>    </SearchBox>
        
-
-        
-        </div>
+        </Link>
     )
-    
-   
 
 }
 
-
-
-export default HomeHeader;
+export default Header2;

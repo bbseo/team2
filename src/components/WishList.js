@@ -1,10 +1,12 @@
-
 import React from 'react';
 import logo from '../assets/logo.png';
 import meat from '../assets/meat.jpg';
 import styled from "styled-components";
 import StarRating from './StatRating';
 import { Link } from "react-router-dom"
+import { useState } from 'react';
+import dataFoods from '../dataBase/FoodLists.json';
+
 const Container= styled.div`
     position: relative;
     width: 105rem;
@@ -138,17 +140,52 @@ const WishStar = styled.div`
 `;
 
 const WishComment = styled.input`
-    width: 67.5rem;
-    height:9rem;
+    width: 69.5rem;
+    height:5rem;
     margin-left: 1rem;
-    margin-top: 0.6rem;
+    margin-top: 2.6rem;
     border-radius: 10px;
     background-color: lightgray;
 `;
 
 
 
-function WishList() {
+function WishList({wishid}) {
+   
+    const [foodsLists, setTest] = useState(dataFoods);
+    // let guGun = '해운대구';
+
+    const checkId = wishid;
+
+    const food = foodsLists.filter(
+        (foodlist) => (foodlist.콘텐츠ID == checkId)
+    );
+    console.log(food)
+
+    const testImg = food.map((test)=>(
+        test.썸네일이미지URL
+    ))
+    const testTitle= food.map((test)=>(
+            test.콘텐츠명
+        ))
+    const testMenu= food.map((test)=>(
+            test.대표메뉴
+        ))
+    const testAddr= food.map((test)=>(
+            test.주소
+        ))
+    const testNumber= food.map((test)=>(
+            test.연락처
+        ))
+    const testTime= food.map((test)=>(
+            test['운영 및 시간']
+        ))
+
+    const [wish,setWish] = useState([]);
+
+    // const foods = food.
+
+
 
 return(
     <Container>
@@ -160,19 +197,19 @@ return(
         </HeaderContainer>
 
         <WishBox>
-            <WishThum src={meat}/>
+            <WishThum src={testImg}/>
             <WishText>
-                <WishTitle>상호명 : 문스시</WishTitle> 별점 : <WishStar><StarRating /></WishStar><br/>
-                <WishMenu>대표메뉴 : 오마카세 스시</WishMenu><br/> 
-                <WishAddr>주소 : 부산 해운대구 좌동순환로 43</WishAddr><br/>
-                <WishNumber>전화번호 : 051-744-3316</WishNumber><br/>
-                <WishTime>운영 및 시간 : am 11:30 ~ pm 22:0015:00~17:30 (break time)</WishTime>
-                
+                <WishTitle>상호명: {testTitle}</WishTitle>
+                <WishMenu>대표메뉴 :{testMenu} </WishMenu>
+                <WishAddr>주소 : {testAddr}</WishAddr>
+                <WishNumber>전화번호 : {testNumber} </WishNumber>
+                <WishTime>운영 및 시간 : {testTime}</WishTime>
+                별점 : <WishStar><StarRating /></WishStar>
                 <WishComment type="text"></WishComment>
             </WishText>
         </WishBox>
 
-        <WishBox>
+        {/* <WishBox>
             <WishThum src={meat}/>
             <WishText>
                 
@@ -182,7 +219,7 @@ return(
         <WishBox>
             <WishThum src={meat}/>
             <WishText></WishText>
-        </WishBox>
+        </WishBox> */}
     </Container>
 
 )
