@@ -111,38 +111,56 @@ const BlackHeart = styled.img`
     height:1rem;
 `;
 
+const List = styled.li`
+    list-style: none;
+`;
+
+const Text = styled.p`
+    font-family: 'Dalseo';
+`;
 
 
-function PopImfo({setPopshow}) {
 
-        const [foodsLists, setTest] = useState(dataFoods);
-            let guGun = '해운대구';
+function PopImfo({setPopshow, sendId, setWishid}) {
 
-        let food = foodsLists.filter(
-            (foodlist) => (foodlist.구군 == guGun)
-            )
-        const testFood = food.map((test)=>(
-                test.썸네일이미지URL
-            ))
-        const testName= food.map((test)=>(
-                test.콘텐츠명
-            ))
-        
+    const [foodsLists, setTest] = useState(dataFoods);
+    const checkId = sendId;
+
+    let food = foodsLists.filter(
+        (foodlist) => (foodlist.콘텐츠ID == checkId)
+        )
+        const foodFullList = food.map(
+            (foodlist)  =>(  
+          <List> 
+                <Popimg  src={foodlist.이미지URL} />
+                <Text>제목 : {foodlist.콘텐츠명} </Text> 
+                <Text>대표메뉴 : {foodlist.대표메뉴}</Text> 
+                <Text>주소 : {foodlist.주소}</Text> 
+                <Text>운영 및 시간 :{foodlist['운영 및 시간']}</Text> 
+                <Text>연락처 : {foodlist.연락처} </Text>
+          </List>)
+          )
+                
+               
+            
         const [heartChange, setHeartChange]=useState(true);
+
+        setWishid(checkId);
+        
 
     return(
         <>
         <GlobalStyle/>  
         <Container>
             <PopTitile>Busan Tasty Road</PopTitile>
-            <Popimg src= {testFood[0]}/>
-            <PopImfoWindow>상호명:{testName[0]}</PopImfoWindow>
+            {foodFullList}
             
             <Close onClick={()=>{setPopshow(false)}}>Back</Close>
             <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange)}}/> Add Wish</AddWishbox>
             
 
         </Container>
+      
       
         </>
     )

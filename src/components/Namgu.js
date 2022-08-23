@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import dataFoods from "../dataBase/FoodLists.json";
 import styled from "styled-components";
-import jingu from "../assets/jingu.PNG"
+import namgu from "../assets/namgu.PNG"
 import Footer from "./Footer";
 import PopImfo from "./PopImfo";
 import FoodHeader from './FoodHeader';
@@ -16,49 +16,13 @@ const Container= styled.div`
     
 `;
   
-const JinguLogo = styled.img`
+const NamguLogo = styled.img`
     display:block;
-    width: 35.5rem;
-    height: 18rem;
+    width: 42rem;
+    height: 29.25rem;
     margin: auto;
-    ` ;
+` ;
 
-const JinguTitle = styled.span`
-    width: 17.5rem;
-    height: 7.5;
-    margin-left: 35.5rem;
-    font-family: Inter;
-    font-size: 3rem;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #26416b;
-`
-
-const JinguLine = styled.div`
-    width: 35rem;
-    height: 2px;
-    margin: 1rem 0 1rem 22rem;
-    background-color: #a4b5e1;
-`
-
-const InBusan = styled.span`
-    width: 10rem;
-    height: 7.5rem;
-    margin-left: 35rem;
-    font-family: Inter;
-    font-size: 1.8rem;
-    font-weight: 400;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #26416b;
-`
 
 
 
@@ -87,19 +51,19 @@ const FoodImg = styled.img`
 `
 
 
-function Jingu() {
+function Namgu() {
 
 const [foodsLists, setTest] = useState(dataFoods);
 
 
 // console.log(foodsLists)
 
-let guGun = '부산진구';
+let guGun = '남구';
 
 let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
 )
-
+console.log(food);
 // const food = foodsLists.map(
 //     (foodlist)  =>(foodlist.구군 =='해운대구') ? 
 //   (<li> 
@@ -124,7 +88,7 @@ const testFood = food.map((test)=>(
   
 const [PopShow, setPopshow ]=useState(false);
 
-
+console.log(testFood[0]);
 
 
     return(
@@ -133,10 +97,7 @@ const [PopShow, setPopshow ]=useState(false);
      {!PopShow && <Container>
         
           <FoodHeader/>
-          <JinguLogo src={jingu}/>
-          <JinguTitle>Jingu</JinguTitle>
-          <JinguLine />
-          <InBusan>IN BUSAN</InBusan>
+          <NamguLogo src={namgu}/>
           <ImgContainer>
               <FoodImg src={testFood[0]} onClick= {() =>(setPopshow(true))}/>
               <FoodImg src={testFood[1]}/>
@@ -165,4 +126,4 @@ const [PopShow, setPopshow ]=useState(false);
 
 
 
-export default Jingu;
+export default Namgu;
