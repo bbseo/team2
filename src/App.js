@@ -9,6 +9,13 @@ import Suyoung  from './components/Suyoung';
 import SearchPage  from './components/SearchPage';
 import { useState } from 'react';
 import Gangsegu from './components/Gangsegu';
+import Gijanggun from './components/Gijanggun';
+import Yeongdo from './components/Yeongdo';
+import Sahagu from './components/Shagu';
+import Junggu from './components/Junggu';
+import Donglae from './components/Donglae';
+import Yeanjaegu from './components/Yeanjaegu';
+import Sasanggu from './components/Sasanggu';
 
 
 
@@ -30,6 +37,13 @@ function App() {
         <Route path='/namgu' element={<Namgu setWishid={setWishid} />} /> 
         <Route path='/suyoung' element={<Suyoung setWishid={setWishid} />} /> 
         <Route path='/gangsegu' element={<Gangsegu setWishid={setWishid} />} /> 
+        <Route path='/gijanggun' element={<Gijanggun setWishid={setWishid} />} /> 
+        <Route path='/yeongdo' element={<Yeongdo setWishid={setWishid} />} /> 
+        <Route path='/sahagu' element={<Sahagu setWishid={setWishid} />} /> 
+        <Route path='/junggu' element={<Junggu setWishid={setWishid} />} /> 
+        <Route path='/donglae' element={<Donglae setWishid={setWishid} />} /> 
+        <Route path='/yeanjaegu' element={<Yeanjaegu setWishid={setWishid} />} /> 
+        <Route path='/sasanggu' element={<Sasanggu setWishid={setWishid} />} /> 
         <Route path='/search' element={<SearchPage/>} />    
       </Routes>
     </Router>
