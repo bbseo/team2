@@ -2,15 +2,13 @@ import React, {useState} from "react";
 import dataFoods from '../dataBase/FoodLists.json';
 import styled from "styled-components";
 import haeundae from "../assets/haeundae.PNG"
-import meat from "../assets/meat.jpg"
-import Header from "./Header";
 import Footer from "./Footer";
-
+import PopImfo from "./PopImfo";
+import FoodHeader from './FoodHeader';
 
 const Container= styled.div`
     position: relative;
-    width: 105rem;
-   
+    width: 80rem; 
     background-color: #fff;
     border 0.2rem dashed #aebde2;
     margin: auto;
@@ -21,14 +19,15 @@ const Container= styled.div`
 const HaeunLogo = styled.img`
     display:block;
     width: 45rem;
-    height: 31.25rem;
+    height: 29.25rem;
     margin: auto;
     ` ;
 const ImgContainer = styled.div`
     display: inline-block;
-    width: 105rem;
+    width: 80rem;
     height: 15rem;
     text-align: center;
+    margin-top: 1rem;
     
     
 
@@ -39,22 +38,17 @@ const ImgContainer = styled.div`
 const FoodImg = styled.img`
     width: 10rem;
     height: 10rem;
-    padding: 3rem 5rem;
+   
     border-radius: 50%;
+    border  solid black;
+    margin-right: 2rem;
 `
 
-const Testdh = styled.div`
-    width : 100rem;
-    hight: 10rem;
-    background : black;
-    color : white;
-`
 
-function Foods() {
+function Haeundae() {
 
 const [foodsLists, setTest] = useState(dataFoods);
-const [testjs , setTestjs] = useState(false);
-const [testjs1 , setTestjs1] = useState(false);
+
 
 // console.log(foodsLists)
 
@@ -64,10 +58,8 @@ let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
 )
 
-
-// onClick 
-// const food2 = foodsLists.map(
-//     (foodlist)  =>(foodlist.구군 == guGun) ? 
+// const food = foodsLists.map(
+//     (foodlist)  =>(foodlist.구군 =='해운대구') ? 
 //   (<li> 
 //     <img src={foodlist.이미지URL}></img> <br />
 //     이름: {foodlist.콘텐츠명} <br /> 
@@ -78,65 +70,62 @@ let food = foodsLists.filter(
 //     전화번호: {foodlist.연락처}  
 //   </li>) : (<></>) 
 //   )
-
-
+  
 
 const testFood = food.map((test)=>(
   test.썸네일이미지URL
 ))
+const testId = food.map((test)=>(
+    test.콘텐츠ID
+))
 
-const foodTest = food.map((test)=>(
-    <li> 
-        <img src={test.이미지URL}></img> <br />
-        이름: {test.콘텐츠명} <br /> 
-        소개: {test.상세내용} <br /> 
-        대표매뉴: {test.대표메뉴} <br /> 
-        주소: {test.주소} <br /> 
-        운영시간: {test['운영 및 시간']}<br />   
-        전화번호: {test.연락처}  
-    </li>
-  ))
 
   
+const [PopShow, setPopshow ]=useState(false);
 
-console.log(foodTest[0])
-  
-  
-  
-  
+const [sendId, setSendId] = useState(testId);
+
+
+
 
 
 
     return(
+       
       <div>
+     {!PopShow && <Container>
+        
+          <FoodHeader/>
+          <HaeunLogo src={haeundae}/>
 
-    <Container onClick={() => setTestjs(!testjs)}>
-        <Header/>
-        <HaeunLogo src={haeundae}/>
-        <ImgContainer>
-            <FoodImg src={testFood[0]} onClick={() => setTestjs(!testjs)}  />
-            {/* {testjs && <Testdh>{foodTest[0]} </Testdh>} */}
-            <FoodImg src={testFood[1]} onClick={() => setTestjs1(!testjs1)} />
-            <FoodImg src={testFood[2]}/>
-        </ImgContainer>
-        <ImgContainer>
-            <FoodImg src={testFood[3]}/>
-            <FoodImg src={testFood[4]}/>
-            <FoodImg src={testFood[5]}/>
-        </ImgContainer>
+          <ImgContainer>
+          <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[0])}}/>
+              <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[1])}}/>
+              <FoodImg src={testFood[2]}/>
+          </ImgContainer>
 
+          <ImgContainer>
+              <FoodImg src={testFood[3]}/>
+              <FoodImg src={testFood[4]}/>
+              <FoodImg src={testFood[5]}/>
+          </ImgContainer>
 
-        {testjs && <Testdh>{foodTest[0]} </Testdh>}
-        {testjs1 && <Testdh>{foodTest[1]} </Testdh>}
+          <Footer/>
 
-        <Footer/>
-    </Container>
-  
+      </Container>}
+
+      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow}/>}
+      
+   
   </div>
+    
+   
     )
 }
 
 
 
 
-export default Foods;
+export default Haeundae;

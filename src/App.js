@@ -1,13 +1,17 @@
 import './App.css';
-// import HomePage from './components/HomePage';
-// import Users from './components/Users';
-// import Jingu from './components/Jingu';
-// import Foods from './components/Foods';
-import HomePage1 from './components/Homepage1';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainHome from './components/MainHome';
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Heaundae from './components/Haeundae';
-import TestContent from './components/TestContent';
+import Jingu from './components/Jingu';
+import WishList from './components/WishList';
+
+
+
+
+
 function App() {
+  
+  
   return (
     <>
     {/* <Jingu /> */}
@@ -17,11 +21,14 @@ function App() {
 
     <Router>
       <Routes>
-      <Route path='/' element={<HomePage1 />} />
-      <Route path='/heaundae' element={<Heaundae />} />
-      <Route path='/jingu' element={<TestContent />} />
+        <Route path='/' element={<MainHome/>} />
+        <Route path='/heaundae' element={<Heaundae/>} />
+        <Route path='/jingu' element={<Jingu />} /> 
+        <Route path='/wishList' element={<WishList />} />     
       </Routes>
     </Router>
+
+    {/* <WishList /> */}
 
     
    
