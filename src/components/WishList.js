@@ -138,7 +138,7 @@ const WishStar = styled.div`
 `;
 
 const WishComment = styled.input`
-    width: 67.5rem;
+    width: 69.5rem;
     height:9rem;
     margin-left: 1rem;
     margin-top: 0.6rem;
@@ -162,12 +162,12 @@ return(
         <WishBox>
             <WishThum src={meat}/>
             <WishText>
-                <WishTitle>상호명 : 문스시</WishTitle> 별점 : <WishStar><StarRating /></WishStar><br/>
-                <WishMenu>대표메뉴 : 오마카세 스시</WishMenu><br/> 
-                <WishAddr>주소 : 부산 해운대구 좌동순환로 43</WishAddr><br/>
-                <WishNumber>전화번호 : 051-744-3316</WishNumber><br/>
+                <WishTitle>상호명 : 문스시</WishTitle>
+                <WishMenu>대표메뉴 : 오마카세 스시</WishMenu>
+                <WishAddr>주소 : 부산 해운대구 좌동순환로 43</WishAddr>
+                <WishNumber>전화번호 : 051-744-3316</WishNumber>
                 <WishTime>운영 및 시간 : am 11:30 ~ pm 22:0015:00~17:30 (break time)</WishTime>
-                
+                별점 : <WishStar><StarRating /></WishStar>
                 <WishComment type="text"></WishComment>
             </WishText>
         </WishBox>
