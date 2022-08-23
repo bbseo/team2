@@ -30,7 +30,6 @@ const ImgContainer = styled.div`
     margin-top: 1rem;
    
     
-
     
     
 `
@@ -45,6 +44,20 @@ const FoodImg = styled.img`
     &:hover{
         border dashed #8ca8f0;
     }
+`
+
+const MoreButton = styled.span`
+    display: block;
+    width: 140px;
+    height: 60px;
+    font-family: 'Dalseo';
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    color: #000;
+    background: #8ca8f0;
+    margin: auto;
 `
 
 
@@ -77,45 +90,57 @@ const testId = food.map((test)=>(
 const [PopShow, setPopshow ]=useState(false);
 const [sendId, setSendId] = useState(testId);
 
+// 더 보기 음식 리스트
+const [ foodShow, setFoodShow ] = useState(false);
+
+// 더 보기 버튼 이름 변경
+const [ button, setButton ] = useState('MORE');
 
 
 
     return(
        
       <div>
-   {!PopShow && <Container>
+        <Container>
         
         <FoodHeader/>
         <HaeunLogo src={haeundae}/>
+        {/* 음식 1~3 */}
         <ImgContainer>
-            {testFood.map((food, idx) => {
+        {testFood.map((food, idx) => {
                 if (idx < 3) {
                     return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
                         setSendId(testId[idx])}}/>
                 }
             })}
-
-            {/* <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
-                                                        setSendId(testId[0])}}/>
-            <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
-                                                        setSendId(testId[1])}}/>
-            <FoodImg src={testFood[2]} onClick= {() => {setPopshow(true)
-                                                        setSendId(testId[2])}}/> */}
         </ImgContainer>
 
+        {/* 음식 4~6 */}
         <ImgContainer>
-                                                        
-            <FoodImg src={testFood[3]} onClick= {() => {setPopshow(true)
-                                                        setSendId(testId[3])}}/>
-            <FoodImg src={testFood[4]} onClick= {() => {setPopshow(true)
-                                                        setSendId(testId[4])}}/>
-            <FoodImg src={testFood[5]} onClick= {() => {setPopshow(true)
-                                                        setSendId(testId[5])}}/>
+        {testFood.map((food, idx) => {
+                if (idx > 2 && idx < 6) {
+                    return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
+                        setSendId(testId[idx])}}/>
+                }
+            })}
         </ImgContainer>
-
+        
+        {/* 더 보기 */}
+        {foodShow && <ImgContainer>
+        {testFood.map((food, idx) => {
+            if (idx > 5 && idx < 9) {
+                return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
+                    setSendId(testId[idx])}}/>
+                }
+            })}
+        </ImgContainer>}
+            <MoreButton onClick={() => {
+                setFoodShow((prev) => !prev)
+                button == 'CLOSE' ? setButton('MORE') : setButton('CLOSE')
+                }}>{button}</MoreButton>
         <Footer/>
 
-    </Container>}
+    </Container>
 
       {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid}/>}
       
