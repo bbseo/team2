@@ -1,11 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../assets/logo.png';
 import meat from '../assets/meat.jpg';
 import styled from "styled-components";
 import StarRating from './StatRating';
-import dataFoods from '../dataBase/FoodLists.json';
 import { Link } from "react-router-dom"
+import { useState } from 'react';
+import dataFoods from '../dataBase/FoodLists.json';
 const Container= styled.div`
     position: relative;
     width: 105rem;
@@ -149,9 +150,25 @@ const WishComment = styled.input`
 
 
 
-function WishList() {
+function WishList({wishid}) {
+   
+    const [foodsLists, setTest] = useState(dataFoods);
+    // let guGun = '해운대구';
 
-    const [foodlists, setFoodLists] = useState(dataFoods);
+    const checkId = wishid;
+
+    const food = foodsLists.filter(
+        (foodlist) => (foodlist.콘텐츠ID == checkId)
+    );
+// const testImg = food.map((test)=>(
+//         test.썸네일이미지URL
+//     ))
+const testTitle= food.map((test)=>(
+        test.콘텐츠명
+    ))
+
+
+
 
 return(
     <Container>
@@ -165,7 +182,7 @@ return(
         <WishBox>
             <WishThum src={meat}/>
             <WishText>
-                <WishTitle>상호명 : 문스시 </WishTitle>
+                <WishTitle>상호명: {testTitle}</WishTitle>
                 <WishMenu>대표메뉴 : 오마카세 스시</WishMenu>
                 <WishAddr>주소 : 부산 해운대구 좌동순환로 43</WishAddr>
                 <WishNumber>전화번호 : 051-744-3316</WishNumber>
@@ -173,7 +190,19 @@ return(
                 별점 : <WishStar><StarRating /></WishStar>
                 <WishComment type="text"></WishComment>
             </WishText>
-        </WishBox>    
+        </WishBox>
+
+        <WishBox>
+            <WishThum src={meat}/>
+            <WishText>
+                
+            </WishText>
+        </WishBox>
+
+        <WishBox>
+            <WishThum src={meat}/>
+            <WishText></WishText>
+        </WishBox>
     </Container>
 
 )
