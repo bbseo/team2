@@ -28,6 +28,16 @@ const List = styled.li`
     list-style: none;
 `
 
+const NoResult = styled.span`
+    display: flex;
+    font-size:1.5rem;
+    width: 13.3rem;
+    font-family: 'Dalseo';
+    margin:auto;
+    padding-top:3rem;
+`
+
+
 function SearchPage() {
 
     const location = useLocation();
@@ -40,28 +50,24 @@ function SearchPage() {
 
     
     // 검색어 포함
-    const filterFood = foodsLists.filter((include) => include.콘텐츠명.includes(searchValue))
-    
+    const filterFood = foodsLists.filter((include) => include.콘텐츠명.includes(searchValue) || include.대표메뉴.includes(searchValue))
 
-    const includeFoodName = filterFood.map(
+    const includeFood = filterFood.map(
         (menu) => (
             <List>
                 <SearchFoodImg src={menu.이미지URL} /> <br />
                 <Span>제목 : {menu.콘텐츠명} </Span> <br />
+                <Span>대표 메뉴 : {menu.대표메뉴} </Span> <br />
                 <Span>주소 : {menu.주소}</Span> <br />
                 <Span>운영 및 시간 :{menu['운영 및 시간']}</Span> <br />
                 <Span>연락처 : {menu.연락처} </Span>
             </List>
         ))
 
-
-
-
-
     return(
         <div>
             <FoodHeader />
-            {includeFoodName}
+            {includeFood.length > 0 ? <>{includeFood}</> : <NoResult>검색 결과가 없습니다.</NoResult>}
         </div>
     )
 }
