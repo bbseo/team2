@@ -5,7 +5,6 @@ import logo from "../assets/logo.png"
 import { Link } from "react-router-dom"
 import SearchPage from "./SearchPage";
 
-
 const Logo = styled.div`
     display: inline-block;
     width: 200px;
@@ -60,6 +59,7 @@ const Input = styled.input`
     text-align: center;
     
 `
+
 
 
 

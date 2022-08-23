@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 import meat from '../assets/meat.jpg';
 import styled from "styled-components";
 import StarRating from './StatRating';
-
+import { Link } from "react-router-dom"
 const Container= styled.div`
     position: relative;
     width: 105rem;
@@ -90,7 +90,7 @@ const WishThum = styled.img`
 `;
 
 const WishText = styled.div`
-    width: 70rem;
+    width: 72rem;
     height: 17rem;
     margin-left: 3.5rem;
     margin-top: 1.4rem;
@@ -102,8 +102,8 @@ const WishTitle = styled.div`
     display: inline-block;
     padding: 0.5rem;
     margin-top: 0.5rem;
-    margin-left: 0.5rem;
     border-radius: 10px;
+    
 `;
 
 const WishMenu = styled.div`
@@ -129,12 +129,12 @@ const WishNumber = styled.div`
 const WishTime = styled.div`
     display: inline-block;
     padding: 0.5rem;
-    margin-left: 0.5rem;
     margin-right: 1rem;
 `;
 
 const WishStar = styled.div`
     display: inline-block;
+
 `;
 
 const WishComment = styled.input`
@@ -153,19 +153,21 @@ function WishList() {
 return(
     <Container>
         <HeaderContainer>
+            <Link to={"/"}>
             <Logo><Dynamic>Dynamic</Dynamic><Boat src={logo}/><Busan>Busan</Busan></Logo>
+            </Link>
             <BusanTiltle>My WishList</BusanTiltle>
         </HeaderContainer>
 
         <WishBox>
             <WishThum src={meat}/>
             <WishText>
-                <WishTitle>상호명 : 문스시</WishTitle>
-                <WishMenu>대표메뉴 : 오마카세 스시</WishMenu> 
-                <WishAddr>주소 : 부산 해운대구 좌동순환로 43</WishAddr>
-                <WishNumber>전화번호 : 051-744-3316</WishNumber>
+                <WishTitle>상호명 : 문스시</WishTitle> 별점 : <WishStar><StarRating /></WishStar><br/>
+                <WishMenu>대표메뉴 : 오마카세 스시</WishMenu><br/> 
+                <WishAddr>주소 : 부산 해운대구 좌동순환로 43</WishAddr><br/>
+                <WishNumber>전화번호 : 051-744-3316</WishNumber><br/>
                 <WishTime>운영 및 시간 : am 11:30 ~ pm 22:0015:00~17:30 (break time)</WishTime>
-                별점 : <WishStar><StarRating /></WishStar>
+                
                 <WishComment type="text"></WishComment>
             </WishText>
         </WishBox>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import main from '../assets/Main.png';
+import main from '../assets/main.png';
 import map from '../assets/map2.png';
 import {Link} from "react-router-dom"
 import pin from '../assets/pin.png';
@@ -95,7 +95,7 @@ return(
         <Header/>
         <Main src={main}/>
         <Map src={map}/>
-       <Link to={"haeundae"}>
+       <Link to={"heaundae"}>
          <NavHaeundae src={pin} onMouseOver={()=>setShowvalue(true)} onMouseOut={()=>setShowvalue(false)}/>
        </Link>
         { showValue && <NameHaeundae>해운대구</NameHaeundae> }

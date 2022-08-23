@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import dataFoods from '../dataBase/FoodLists.json';
+import dataFoods from "../dataBase/FoodLists.json";
 import styled from "styled-components";
-import haeundae from "../assets/haeundae.PNG"
+import suyoung from "../assets/suyoung.PNG"
 import Footer from "./Footer";
 import PopImfo from "./PopImfo";
 import FoodHeader from './FoodHeader';
@@ -16,12 +16,18 @@ const Container= styled.div`
     
 `;
   
-const HaeunLogo = styled.img`
+const SuyoungLogo = styled.img`
     display:block;
-    width: 45rem;
+    width: 42rem;
     height: 29.25rem;
     margin: auto;
-    ` ;
+` ;
+
+
+
+
+
+
 const ImgContainer = styled.div`
     display: inline-block;
     width: 80rem;
@@ -45,19 +51,18 @@ const FoodImg = styled.img`
 `
 
 
-function Haeundae() {
+function Suyoung() {
 
 const [foodsLists, setTest] = useState(dataFoods);
 
-
 // console.log(foodsLists)
 
-let guGun = '해운대구';
+let guGun = '수영구';
 
 let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
 )
-
+console.log(food);
 // const food = foodsLists.map(
 //     (foodlist)  =>(foodlist.구군 =='해운대구') ? 
 //   (<li> 
@@ -75,14 +80,14 @@ let food = foodsLists.filter(
 const testFood = food.map((test)=>(
   test.썸네일이미지URL
 ))
-const testId = food.map((test)=>(
-    test.콘텐츠ID
-))
 
+
+
+  
   
 const [PopShow, setPopshow ]=useState(false);
 
-const [sendId, setSendId] = useState(testId);
+console.log(testFood[0]);
 
 
     return(
@@ -91,12 +96,10 @@ const [sendId, setSendId] = useState(testId);
      {!PopShow && <Container>
         
           <FoodHeader/>
-          <HaeunLogo src={haeundae}/>
+          <SuyoungLogo src={suyoung}/>
           <ImgContainer>
-              <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
-                                                          setSendId(testId[0])}}/>
-              <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
-                                                          setSendId(testId[1])}}/>
+              <FoodImg src={testFood[0]} onClick= {() =>(setPopshow(true))}/>
+              <FoodImg src={testFood[1]}/>
               <FoodImg src={testFood[2]}/>
           </ImgContainer>
 
@@ -110,7 +113,7 @@ const [sendId, setSendId] = useState(testId);
 
       </Container>}
 
-      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow}/>}
+      {PopShow && <PopImfo setPopshow={setPopshow}/>}
       
    
   </div>
@@ -122,4 +125,4 @@ const [sendId, setSendId] = useState(testId);
 
 
 
-export default Haeundae;
+export default Suyoung;

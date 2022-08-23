@@ -14,25 +14,9 @@ const Map = styled.img`
 
 const MapPin = styled.div`
     position: relative;
+    margin-top: 100px
 `
 
-const Slogun = styled.span`
-    display: flex;
-    position: absolute;
-    width: 383px;
-    height: 57px;
-    margin: 0 295px 222px 311px;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 32px;
-    font-weight: 100;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
-`
 
 const Haeundae = styled.img`
     display: flex;
@@ -80,7 +64,6 @@ function Content() {
             <Jingu src={pin} onClick={(e) => {console.log('진구')}}/>
             <Namgu src={pin} onClick={(e) => {console.log('남구')}}/>
             <Yeongdo src={pin} onClick={(e) => {console.log('영도구')}}/>
-            <Slogun>배가 비어있다면<br /> 정신도 빌 수 밖에 없다.</Slogun>
             <Map src={map} /> 
         </MapPin>
     )

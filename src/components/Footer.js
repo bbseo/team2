@@ -8,6 +8,7 @@ width: 80rem;
 height: 6rem;
 border-top: 0.6rem double #aebde2;
 
+
 `
 
 const Boat = styled.img`

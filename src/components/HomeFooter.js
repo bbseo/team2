@@ -41,7 +41,7 @@ const Name = styled.span`
     color: #000;
 `
 
-function Footer() {
+function HomeFooter() {
     return(
         <div>
             <Boat src={boat} />
@@ -52,4 +52,4 @@ function Footer() {
     )
 }
 
-export default Footer;
+export default HomeFooter;

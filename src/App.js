@@ -1,27 +1,22 @@
 import './App.css';
 import MainHome from './components/MainHome';
-import HomeApp from './components/AppHome';
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
-import Haeundae from './components/Haeundae';
+import Heaundae from './components/Haeundae';
 import Jingu from './components/Jingu';
-import FoodHeader from './components/FoodHeader';
-import Imfo from './components/Imfo';
+import Namgu from './components/Namgu'
+import Suyoung from './components/Suyoung';
 import WishList from './components/WishList';
 import SearchPage from './components/SearchPage';
 
 
-const Layout = () => {
-  return (
-    <div>
-      <FoodHeader />
-      <Outlet />
-      
 
-    </div>
-  )
-}
+
+
+
 
 function App() {
+  
+  
   return (
     <>
     {/* <Jingu /> */}
@@ -31,16 +26,16 @@ function App() {
 
     <Router>
       <Routes>
-      <Route index element={<MainHome/>} />
-      <Route path='/' element={<Layout/>}>
-        <Route path='/haeundae' element={<Haeundae />} />
-        <Route path='/jingu' element={<Jingu />} />
-        <Route path='/search' element={<SearchPage/>} />
-      </Route>
+        <Route path='/' element={<MainHome/>} />
+        <Route path='/heaundae' element={<Heaundae/>} />
+        <Route path='/jingu' element={<Jingu />} /> 
+        <Route path='/namgu' element={<Namgu />} /> 
+        <Route path='/suyoung' element={<Suyoung />} /> 
+        <Route path='/wishList' element={<WishList />} />
+        <Route path='/search' element={<SearchPage/>} />    
       </Routes>
     </Router>
 
-    {/* <Imfo /> */}
     {/* <WishList /> */}
 
     

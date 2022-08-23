@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import map from "../assets/map.PNG"
+import map from "../assets/map.png"
 import pin from "../assets/pin.png"
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -18,8 +18,8 @@ const MapPin = styled.div`
 `;
 
 
+
 const Haeundae = styled.img`
- 
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
@@ -41,9 +41,9 @@ const NameHaeundae = styled.div`
   font-size: 1.5rem;
   left: 63.5rem;
   bottom: 28.5rem;
-  color: white;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
 
@@ -70,9 +70,9 @@ const NameNamgu = styled.div`
   font-size: 1.5rem;
   left: 60rem;
   bottom: 19.5rem;
-  color: white;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
 const Jingu = styled.img`
@@ -98,38 +98,38 @@ const NameJingu = styled.div`
   font-size: 1.5rem;
   left: 55.2rem;
   bottom: 23.3rem;
-  color: white;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
 
-const Yeongdo = styled.img`
+const Suyoung = styled.img`
     
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
-    margin-left: 57.25rem;
-    margin-top: 32.375rem;
+    margin-left: 65rem;
+    margin-top: 23rem;
     cursor: pointer;
     &:hover{
         width: 3.5em;
         height: 3.5rem;
-        margin-left: 57.25rem;
-        margin-top: 32.375rem;
+        margin-left: 65rem;
+        margin-top: 23rem;
     }
 `;
 
-const NameYeongdo = styled.div`
+const NameSuyoung = styled.div`
   position: absolute;
   width: 3em;
   height: 3rem;
   font-size: 1.5rem;
-  left: 56.8rem;
-  bottom: 13.5rem;
-  color: white;
+  left: 64.5rem;
+  bottom: 23.5rem;
+  color: black;
   font-family: Sora;
-  font-weight: 100;
+  font-weight: 1000;
   `;
 
    
@@ -144,7 +144,7 @@ function HomeContent() {
     const [showValue4, setShowvalue4]=useState(false);
     return(
         <MapPin>
-            <Link to={"haeundae"}> 
+            <Link to={"heaundae"}> 
                 <Haeundae src={pin} onClick={(e) => {console.log('해운대')}} onMouseOver={()=>setShowvalue(true)} onMouseOut={()=>setShowvalue(false)}/>
             </Link>
             { showValue && <NameHaeundae>해운대구</NameHaeundae> }
@@ -152,14 +152,14 @@ function HomeContent() {
                 <Jingu src={pin} onClick={(e) => {console.log('진구')}} onMouseOver={()=>setShowvalue2(true)} onMouseOut={()=>setShowvalue2(false)}/>
             </Link>
             { showValue2 && <NameJingu>진구</NameJingu> }
-            <Link to={"haeundae"}> 
+            <Link to={"namgu"}> 
                 <Namgu src={pin} onClick={(e) => {console.log('남구')}} onMouseOver={()=>setShowvalue3(true)} onMouseOut={()=>setShowvalue3(false)}/>
             </Link>
             { showValue3 && <NameNamgu>남구</NameNamgu> }
-            <Link to={"haeundae"}>
-                <Yeongdo src={pin} onClick={(e) => {console.log('영도구')}} onMouseOver={()=>setShowvalue4(true)} onMouseOut={()=>setShowvalue4(false)}/>
+            <Link to={"suyoung"}>
+                <Suyoung src={pin} onClick={(e) => {console.log('수영구')}} onMouseOver={()=>setShowvalue4(true)} onMouseOut={()=>setShowvalue4(false)}/>
             </Link>
-            { showValue4 && <NameYeongdo>영도구</NameYeongdo> }
+            { showValue4 && <NameSuyoung>수영구</NameSuyoung> }
             <Map src={map} /> 
         </MapPin>
     )
