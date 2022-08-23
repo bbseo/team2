@@ -80,10 +80,13 @@ const ImgContainer = styled.div`
 const FoodImg = styled.img`
     width: 10rem;
     height: 10rem;
-   
+    cursor: pointer;
     border-radius: 50%;
     border  solid black;
     margin-right: 2rem;
+    &:hover{
+        border dashed #8ca8f0;
+    }
 `
 
 

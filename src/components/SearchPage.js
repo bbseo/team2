@@ -4,17 +4,7 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import dataFoods from "../dataBase/FoodLists.json";
 import FoodHeader from "./FoodHeader";
-import PopImfo from "./PopImfo";
  
-// const FoodImg = styled.img`
-//     width: 10rem;
-//     height: 10rem;
-//     margin-left: 55rem;
-//     border-radius: 50%;
-//     border  solid black;
-
-
-// `
 
 const SearchFoodImg = styled.img`
     margin-top: 5rem;

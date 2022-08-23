@@ -28,7 +28,7 @@ const ImgContainer = styled.div`
     height: 15rem;
     text-align: center;
     margin-top: 1rem;
-    
+   
     
 
     
@@ -38,14 +38,17 @@ const ImgContainer = styled.div`
 const FoodImg = styled.img`
     width: 10rem;
     height: 10rem;
-   
+    cursor: pointer;
     border-radius: 50%;
     border  solid black;
     margin-right: 2rem;
+    &:hover{
+        border dashed #8ca8f0;
+    }
 `
 
 
-function Haeundae() {
+function Haeundae({setWishid}) {
 
 const [foodsLists, setTest] = useState(dataFoods);
 
@@ -58,18 +61,7 @@ let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
 )
 
-// const food = foodsLists.map(
-//     (foodlist)  =>(foodlist.구군 =='해운대구') ? 
-//   (<li> 
-//     <img src={foodlist.이미지URL}></img> <br />
-//     이름: {foodlist.콘텐츠명} <br /> 
-//     소개: {foodlist.상세내용} <br /> 
-//     대표매뉴: {foodlist.대표메뉴} <br /> 
-//     주소: {foodlist.주소} <br /> 
-//     운영시간: {foodlist['운영 및 시간']}<br />   
-//     전화번호: {foodlist.연락처}  
-//   </li>) : (<></>) 
-//   )
+
   
 
 const testFood = food.map((test)=>(
@@ -79,38 +71,53 @@ const testId = food.map((test)=>(
     test.콘텐츠ID
 ))
 
+
+  
   
 const [PopShow, setPopshow ]=useState(false);
-
 const [sendId, setSendId] = useState(testId);
+
+
 
 
     return(
        
       <div>
-     {!PopShow && <Container>
+   {!PopShow && <Container>
         
-          <FoodHeader/>
-          <HaeunLogo src={haeundae}/>
-          <ImgContainer>
-              <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
-                                                          setSendId(testId[0])}}/>
-              <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
-                                                          setSendId(testId[1])}}/>
-              <FoodImg src={testFood[2]}/>
-          </ImgContainer>
+        <FoodHeader/>
+        <HaeunLogo src={haeundae}/>
+        <ImgContainer>
+            {testFood.map((food, idx) => {
+                if (idx < 3) {
+                    return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
+                        setSendId(testId[idx])}}/>
+                }
+            })}
 
-          <ImgContainer>
-              <FoodImg src={testFood[3]}/>
-              <FoodImg src={testFood[4]}/>
-              <FoodImg src={testFood[5]}/>
-          </ImgContainer>
+            {/* <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
+                                                        setSendId(testId[0])}}/>
+            <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
+                                                        setSendId(testId[1])}}/>
+            <FoodImg src={testFood[2]} onClick= {() => {setPopshow(true)
+                                                        setSendId(testId[2])}}/> */}
+        </ImgContainer>
 
-          <Footer/>
+        <ImgContainer>
+                                                        
+            <FoodImg src={testFood[3]} onClick= {() => {setPopshow(true)
+                                                        setSendId(testId[3])}}/>
+            <FoodImg src={testFood[4]} onClick= {() => {setPopshow(true)
+                                                        setSendId(testId[4])}}/>
+            <FoodImg src={testFood[5]} onClick= {() => {setPopshow(true)
+                                                        setSendId(testId[5])}}/>
+        </ImgContainer>
 
-      </Container>}
+        <Footer/>
 
-      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow}/>}
+    </Container>}
+
+      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid}/>}
       
    
   </div>

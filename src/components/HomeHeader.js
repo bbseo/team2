@@ -41,22 +41,27 @@ const Busan = styled.span`
 `;
 
 const SearchBox = styled.div`
-    display: flex;
-    margin-top:100px;
+    display: inline-block;;
+    padding: 0.8rem;
+    border: 2px solid #A4B5E1;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px 3px gray;
+    margin-left: 637px;
     margin-bottom: 150px;
+    margin-top: 100px;
 `
 
 const Input = styled.input`
     outline: none;
     font-size:15px;
-    height: 30px;
+    height: 18px;
     width:700px;
-    BORDER-BOTTOM: 1px solid #A4B5E1;
+    font-family: 'Dalseo';
+    font-size: 20px;
+    BORDER-BOTTOM: 2px solid #A4B5E1;
     BORDER-LEFT: medium none;
     BORDER-RIGHT: medium none;
     BORDER-TOP: medium none;
-    margin-left: 637px;
-    margin-right: 583px
     text-align: center;
     
 `

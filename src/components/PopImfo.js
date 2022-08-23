@@ -111,54 +111,50 @@ const BlackHeart = styled.img`
     height:1rem;
 `;
 
+const List = styled.li`
+    list-style: none;
+`;
+
+const Text = styled.p`
+    font-family: 'Dalseo';
+`;
 
 
 
-function PopImfo({setPopshow, sendId}) {
+function PopImfo({setPopshow, sendId, setWishid}) {
 
-        const [foodsLists, setTest] = useState(dataFoods);
-        const checkId = sendId;
+    const [foodsLists, setTest] = useState(dataFoods);
+    const checkId = sendId;
 
-        const food = foodsLists.filter(
-            (foodlist) => (foodlist.콘텐츠ID == checkId)
-        );
-
-        const testTitle = food.map(
-            (foodlist)  => foodlist.제목
+    let food = foodsLists.filter(
+        (foodlist) => (foodlist.콘텐츠ID == checkId)
         )
-
-        const testImg = food.map(
-            (foodlist) => foodlist.썸네일이미지URL
-        )
-        
-            // let guGun = '해운대구';
-
-        // let food = foodsLists.filter(
-        //     (foodlist) => (foodlist.구군 == guGun)
-        //     )
-        //     const foodFullList = food.map(
-        //         (foodlist)  =>(  
-        //       <li > 
-        //         <Popimg  src={foodlist.이미지URL} /> <br />
-        //             <span>제목 : {foodlist.콘텐츠명} </span> <br />
-        //             <span>상세내용 : {foodlist.상세내용}</span> <br />
-        //             <span>대표메뉴 : {foodlist.대표메뉴}</span> <br />
-        //             <span>주소 : {foodlist.주소}</span> <br />
-        //             <span>운영 및 시간 :{foodlist['운영 및 시간']}</span> <br />
-        //             <span>연락처 : {foodlist.연락처} </span>
-        //       </li>)
-        //       )
-        
+        const foodFullList = food.map(
+            (foodlist)  =>(  
+          <List> 
+                <Popimg  src={foodlist.이미지URL} />
+                <Text>제목 : {foodlist.콘텐츠명} </Text> 
+                <Text>대표메뉴 : {foodlist.대표메뉴}</Text> 
+                <Text>주소 : {foodlist.주소}</Text> 
+                <Text>운영 및 시간 :{foodlist['운영 및 시간']}</Text> 
+                <Text>연락처 : {foodlist.연락처} </Text>
+          </List>)
+          )
+                
+               
+            
         const [heartChange, setHeartChange]=useState(true);
+
+        setWishid(checkId);
+        
+        
 
     return(
         <>
         <GlobalStyle/>  
         <Container>
             <PopTitile>Busan Tasty Road</PopTitile>
-            <Popimg src= {testImg}/>
-            <PopImfoWindow>상호명:{testTitle}</PopImfoWindow>
-            {/* {foodFullList[0]} */}
+            {foodFullList}
             
             <Close onClick={()=>{setPopshow(false)}}>Back</Close>
             <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange)}}/> Add Wish</AddWishbox>
@@ -166,8 +162,10 @@ function PopImfo({setPopshow, sendId}) {
 
         </Container>
       
+      
         </>
     )
+    
 
 
 

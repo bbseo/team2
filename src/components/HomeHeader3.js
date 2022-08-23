@@ -62,9 +62,6 @@ const Input = styled.input`
 
 
 
-
-
-
 function HomeHeader() {
 
     const [foodSearch, setFoodSearch] = useState('');
@@ -74,7 +71,6 @@ function HomeHeader() {
         <Link to={"/"}>
             <Logo><Dynamic>Dynamic</Dynamic><Boat src={logo}/><Busan>Busan</Busan></Logo>
         </Link>
-          
         <SearchBox>
             <Input placeholder="검색" onChange={(e) => setFoodSearch(e.target.value)} />
             <Link to={"/search"} state={foodSearch}>
