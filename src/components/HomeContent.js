@@ -53,13 +53,13 @@ const Namgu = styled.img`
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
-    margin-left: 60rem;
+    margin-left: 59rem;
     margin-top: 27rem;
     cursor: pointer;
     &:hover{
         width: 3.5em;
         height: 3.5rem;
-        margin-left: 60rem;
+        margin-left: 59rem;
         margin-top: 27rem;
     }
 `;
@@ -68,8 +68,8 @@ const NameNamgu = styled.div`
   width: 3em;
   height: 3rem;
   font-size: 1.5rem;
-  left: 60rem;
-  bottom: 18.8rem;
+  left: 59.3rem;
+  bottom: 19rem;
   color: black;
   font-family: Sora;
   font-weight: 1000;
@@ -115,8 +115,8 @@ const Suyoung = styled.img`
     &:hover{
         width: 3.5em;
         height: 3.5rem;
-        margin-left: 61.5rem;
-        margin-top: 23rem;
+        margin-left: 61rem;
+        margin-top: 21.5rem;
     }
 `;
 
@@ -125,12 +125,15 @@ const NameSuyoung = styled.div`
   width: 3em;
   height: 3rem;
   font-size: 1.5rem;
-  left: 61rem;
-  bottom: 23.5rem;
+  left: 60.2rem;
+  bottom: 24.5rem;
   color: black;
   font-family: Sora;
   font-weight: 1000;
   `;
+
+
+
 
    
 
@@ -142,6 +145,7 @@ function HomeContent() {
     const [showValue2, setShowvalue2]=useState(false);
     const [showValue3, setShowvalue3]=useState(false);
     const [showValue4, setShowvalue4]=useState(false);
+    const [showValue5, setShowvalue5]=useState(false);
     return(
         <MapPin>
             <Link to={"heaundae"}> 
@@ -160,6 +164,8 @@ function HomeContent() {
                 <Suyoung src={pin} onClick={(e) => {console.log('수영구')}} onMouseOver={()=>setShowvalue4(true)} onMouseOut={()=>setShowvalue4(false)}/>
             </Link>
             { showValue4 && <NameSuyoung>수영구</NameSuyoung> }
+            
+        
             <Map src={map} /> 
         </MapPin>
     )

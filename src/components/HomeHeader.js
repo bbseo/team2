@@ -3,12 +3,11 @@ import styled from "styled-components";
 import {MdSearch} from 'react-icons/md'
 import logo from "../assets/logo.png"
 import { Link } from "react-router-dom"
-import SearchPage from "./SearchPage";
 
 
 const Logo = styled.div`
     display: inline-block;
-    width: 200px;
+    width: 12.5rem;
     text-align: center;
     margin-left: 870px;
     margin-top: 100px;

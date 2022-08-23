@@ -80,19 +80,39 @@ const ImgContainer = styled.div`
 const FoodImg = styled.img`
     width: 10rem;
     height: 10rem;
-   
+    cursor: pointer;
     border-radius: 50%;
     border  solid black;
     margin-right: 2rem;
+    &:hover{
+        border dashed #8ca8f0;
+    }
+`
+const MoreButton = styled.span`
+    display: block;
+    width: 140px;
+    height: 54px;
+    font-family: 'Dalseo';
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    line-height:54px;
+    vertical-align: middle;
+    color: #000;
+    border: 0.3rem solid #8ca8f0;
+    border-radius: 25%;
+    margin: auto;
+    cursor: pointer;
+    margin-bottom: 1rem;
 `
 
 
-function Jingu() {
+function Jingu({setWishid}) {
 
 const [foodsLists, setTest] = useState(dataFoods);
 
 
-// console.log(foodsLists)
+
 
 let guGun = '부산진구';
 
@@ -100,22 +120,13 @@ let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
 )
 
-// const food = foodsLists.map(
-//     (foodlist)  =>(foodlist.구군 =='해운대구') ? 
-//   (<li> 
-//     <img src={foodlist.이미지URL}></img> <br />
-//     이름: {foodlist.콘텐츠명} <br /> 
-//     소개: {foodlist.상세내용} <br /> 
-//     대표매뉴: {foodlist.대표메뉴} <br /> 
-//     주소: {foodlist.주소} <br /> 
-//     운영시간: {foodlist['운영 및 시간']}<br />   
-//     전화번호: {foodlist.연락처}  
-//   </li>) : (<></>) 
-//   )
-  
+
 
 const testFood = food.map((test)=>(
   test.썸네일이미지URL
+))
+const testId = food.map((test)=>(
+    test.콘텐츠ID
 ))
 
 
@@ -123,37 +134,65 @@ const testFood = food.map((test)=>(
   
   
 const [PopShow, setPopshow ]=useState(false);
+const [sendId, setSendId] = useState(testId);
+// 더 보기 음식 리스트
+const [ foodShow, setFoodShow ] = useState(false);
 
+// 더 보기 버튼 이름 변경
+const [ button, setButton ] = useState('MORE');
 
 
 
     return(
        
       <div>
-     {!PopShow && <Container>
+    <Container>
         
           <FoodHeader/>
           <JinguLogo src={jingu}/>
           <JinguTitle>Jingu</JinguTitle>
           <JinguLine />
           <InBusan>IN BUSAN</InBusan>
-          <ImgContainer>
-              <FoodImg src={testFood[0]} onClick= {() =>(setPopshow(true))}/>
-              <FoodImg src={testFood[1]}/>
-              <FoodImg src={testFood[2]}/>
-          </ImgContainer>
+          {/* 음식 1~3 */}
+        <ImgContainer>
+        {testFood.map((food, idx) => {
+                if (idx < 3) {
+                    return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
+                        setSendId(testId[idx])}}/>
+                }
+            })}
+        </ImgContainer>
 
-          <ImgContainer>
-              <FoodImg src={testFood[3]}/>
-              <FoodImg src={testFood[4]}/>
-              <FoodImg src={testFood[5]}/>
-          </ImgContainer>
+        {/* 음식 4~6 */}
+        <ImgContainer>
+        {testFood.map((food, idx) => {
+                if (idx > 2 && idx < 6) {
+                    return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
+                        setSendId(testId[idx])}}/>
+                }
+            })}
+        </ImgContainer>
+        
+        {/* 더 보기 */}
+        {foodShow && <ImgContainer>
+        {testFood.map((food, idx) => {
+            if (idx > 5 && idx < 9) {
+                return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
+                    setSendId(testId[idx])}}/>
+                }
+            })}
+        </ImgContainer>}
+            <MoreButton onClick={() => {
+                setFoodShow((prev) => !prev)
+                button == 'CLOSE' ? setButton('MORE') : setButton('CLOSE')
+                }}>{button}</MoreButton>
+      
 
           <Footer/>
 
-      </Container>}
+      </Container>
 
-      {PopShow && <PopImfo setPopshow={setPopshow}/>}
+      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid}/>}
       
    
   </div>

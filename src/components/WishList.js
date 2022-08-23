@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../assets/logo.png';
-import meat from '../assets/meat.jpg';
 import styled from "styled-components";
 import StarRating from './StatRating';
 import { Link } from "react-router-dom"
