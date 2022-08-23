@@ -133,7 +133,33 @@ const NameSuyoung = styled.div`
   `;
 
 
+  const Gangsegu = styled.img`
+    
+    position: absolute;
+    height: 2.5rem;
+    weight: 2.5rem;
+    margin-left: 44rem;
+    margin-top: 25rem;
+    cursor: pointer;
+    &:hover{
+        width: 3.5em;
+        height: 3.5rem;
+        margin-left: 43rem;
+        margin-top: 25rem;
+    }
+`;
 
+const NameGangsegu = styled.div`
+  position: absolute;
+  width: 3em;
+  height: 3rem;
+  font-size: 1.5rem;
+  left: 42rem;
+  top: 23rem;
+  color: black;
+  font-family: Sora;
+  font-weight: 1000;
+  `;
 
    
 
@@ -165,7 +191,10 @@ function HomeContent() {
             </Link>
             { showValue4 && <NameSuyoung>수영구</NameSuyoung> }
             
-        
+            <Link to={"gangsegu"}>
+                <Gangsegu src={pin} onClick={(e) => {console.log('수영구')}} onMouseOver={()=>setShowvalue5(true)} onMouseOut={()=>setShowvalue5(false)}/>
+            </Link>
+            { showValue5 && <NameGangsegu>강서구</NameGangsegu> }
             <Map src={map} /> 
         </MapPin>
     )

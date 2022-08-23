@@ -8,7 +8,7 @@ import Namgu from './components/Namgu';
 import Suyoung  from './components/Suyoung';
 import SearchPage  from './components/SearchPage';
 import { useState } from 'react';
-
+import Gangsegu from './components/Gangsegu';
 
 
 
@@ -29,6 +29,7 @@ function App() {
         <Route path='/wishList' element={<WishList wishid={wishid}/>} /> 
         <Route path='/namgu' element={<Namgu setWishid={setWishid} />} /> 
         <Route path='/suyoung' element={<Suyoung setWishid={setWishid} />} /> 
+        <Route path='/gangsegu' element={<Gangsegu setWishid={setWishid} />} /> 
         <Route path='/search' element={<SearchPage/>} />    
       </Routes>
     </Router>
