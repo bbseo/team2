@@ -75,14 +75,14 @@ let food = foodsLists.filter(
 const testFood = food.map((test)=>(
   test.썸네일이미지URL
 ))
+const testId = food.map((test)=>(
+    test.콘텐츠ID
+))
 
-
-
-  
   
 const [PopShow, setPopshow ]=useState(false);
 
-
+const [sendId, setSendId] = useState(testId);
 
 
     return(
@@ -93,8 +93,10 @@ const [PopShow, setPopshow ]=useState(false);
           <FoodHeader/>
           <HaeunLogo src={haeundae}/>
           <ImgContainer>
-              <FoodImg src={testFood[0]} onClick= {() =>(setPopshow(true))}/>
-              <FoodImg src={testFood[1]}/>
+              <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[0])}}/>
+              <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[1])}}/>
               <FoodImg src={testFood[2]}/>
           </ImgContainer>
 
@@ -108,7 +110,7 @@ const [PopShow, setPopshow ]=useState(false);
 
       </Container>}
 
-      {PopShow && <PopImfo setPopshow={setPopshow}/>}
+      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow}/>}
       
    
   </div>

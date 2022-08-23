@@ -113,20 +113,41 @@ const BlackHeart = styled.img`
 
 
 
-function PopImfo({setPopshow}) {
+
+function PopImfo({setPopshow, sendId}) {
 
         const [foodsLists, setTest] = useState(dataFoods);
-            let guGun = '해운대구';
+        const checkId = sendId;
 
-        let food = foodsLists.filter(
-            (foodlist) => (foodlist.구군 == guGun)
-            )
-        const testFood = food.map((test)=>(
-                test.썸네일이미지URL
-            ))
-        const testName= food.map((test)=>(
-                test.콘텐츠명
-            ))
+        const food = foodsLists.filter(
+            (foodlist) => (foodlist.콘텐츠ID == checkId)
+        );
+
+        const testTitle = food.map(
+            (foodlist)  => foodlist.제목
+        )
+
+        const testImg = food.map(
+            (foodlist) => foodlist.썸네일이미지URL
+        )
+        
+            // let guGun = '해운대구';
+
+        // let food = foodsLists.filter(
+        //     (foodlist) => (foodlist.구군 == guGun)
+        //     )
+        //     const foodFullList = food.map(
+        //         (foodlist)  =>(  
+        //       <li > 
+        //         <Popimg  src={foodlist.이미지URL} /> <br />
+        //             <span>제목 : {foodlist.콘텐츠명} </span> <br />
+        //             <span>상세내용 : {foodlist.상세내용}</span> <br />
+        //             <span>대표메뉴 : {foodlist.대표메뉴}</span> <br />
+        //             <span>주소 : {foodlist.주소}</span> <br />
+        //             <span>운영 및 시간 :{foodlist['운영 및 시간']}</span> <br />
+        //             <span>연락처 : {foodlist.연락처} </span>
+        //       </li>)
+        //       )
         
         const [heartChange, setHeartChange]=useState(true);
 
@@ -135,8 +156,9 @@ function PopImfo({setPopshow}) {
         <GlobalStyle/>  
         <Container>
             <PopTitile>Busan Tasty Road</PopTitile>
-            <Popimg src= {testFood[0]}/>
-            <PopImfoWindow>상호명:{testName[0]}</PopImfoWindow>
+            <Popimg src= {testImg}/>
+            <PopImfoWindow>상호명:{testTitle}</PopImfoWindow>
+            {/* {foodFullList[0]} */}
             
             <Close onClick={()=>{setPopshow(false)}}>Back</Close>
             <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange)}}/> Add Wish</AddWishbox>
@@ -146,7 +168,6 @@ function PopImfo({setPopshow}) {
       
         </>
     )
-    
 
 
 
