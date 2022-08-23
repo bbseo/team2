@@ -73,7 +73,7 @@ let food = foodsLists.filter(
   
 
 const testFood = food.map((test)=>(
-  test.썸네일이미지URL
+    test.썸네일이미지URL
 ))
 const testId = food.map((test)=>(
     test.콘텐츠ID
@@ -97,13 +97,17 @@ const [sendId, setSendId] = useState(testId);
                                                           setSendId(testId[0])}}/>
               <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
                                                           setSendId(testId[1])}}/>
-              <FoodImg src={testFood[2]}/>
+              <FoodImg src={testFood[2]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[2])}}/>
           </ImgContainer>
 
           <ImgContainer>
-              <FoodImg src={testFood[3]}/>
-              <FoodImg src={testFood[4]}/>
-              <FoodImg src={testFood[5]}/>
+              <FoodImg src={testFood[3]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[3])}}/>
+              <FoodImg src={testFood[4]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[4])}}/>
+              <FoodImg src={testFood[5]} onClick= {() => {setPopshow(true)
+                                                          setSendId(testId[5])}}/>
           </ImgContainer>
 
           <Footer/>
