@@ -28,9 +28,8 @@ const ImgContainer = styled.div`
     height: 15rem;
     text-align: center;
     margin-top: 1rem;
+   
     
-    
-
     
     
 `
@@ -38,10 +37,13 @@ const ImgContainer = styled.div`
 const FoodImg = styled.img`
     width: 10rem;
     height: 10rem;
-   
+    cursor: pointer;
     border-radius: 50%;
     border  solid black;
     margin-right: 2rem;
+    &:hover{
+        border dashed #8ca8f0;
+    }
 `
 
 
@@ -80,17 +82,23 @@ const [sendId, setSendId] = useState(testId);
     return(
        
       <div>
-   {!PopShow && <Container>
+        <Container>
         
         <FoodHeader/>
         <HaeunLogo src={haeundae}/>
         <ImgContainer>
-            <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
+        {testFood.map((food, idx) => {
+                if (idx < 3) {
+                    return <FoodImg src={testFood[idx]} onClick= {() => {setPopshow(true)
+                        setSendId(testId[idx])}}/>
+                }
+            })}
+            {/* <FoodImg src={testFood[0]} onClick= {() => {setPopshow(true)
                                                         setSendId(testId[0])}}/>
             <FoodImg src={testFood[1]} onClick= {() => {setPopshow(true)
                                                         setSendId(testId[1])}}/>
             <FoodImg src={testFood[2]} onClick= {() => {setPopshow(true)
-                                                        setSendId(testId[2])}}/>
+                                                        setSendId(testId[2])}}/> */}
         </ImgContainer>
 
         <ImgContainer>
@@ -104,7 +112,7 @@ const [sendId, setSendId] = useState(testId);
 
         <Footer/>
 
-    </Container>}
+    </Container>
 
       {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid}/>}
       

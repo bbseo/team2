@@ -5,8 +5,15 @@ import GlobalStyle from "./GlobalStyle";
 import Redheart from '../assets/Redheart.png'
 import Blackheart from '../assets/blackHeart.png'
 
-
-
+const PopBox = styled.div`
+    position:fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.548);
+`;
 
 const Container= styled.div`
     position: relative;
@@ -34,7 +41,7 @@ const PopTitile = styled.div`
 
 const Popimg = styled.img`
     display: block;
-    width: 20rem;
+    width: 24rem;
     height: 12rem;
     margin: auto;
     margin-top: 2rem;
@@ -117,6 +124,7 @@ const List = styled.li`
 
 const Text = styled.p`
     font-family: 'Dalseo';
+    margin-left: 0.5rem;
 `;
 
 
@@ -149,20 +157,20 @@ function PopImfo({setPopshow, sendId, setWishid}) {
         
 
     return(
-        <>
-        <GlobalStyle/>  
-        <Container>
-            <PopTitile>Busan Tasty Road</PopTitile>
-            {foodFullList}
-            
-            <Close onClick={()=>{setPopshow(false)}}>Back</Close>
-            <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange)}}/> Add Wish</AddWishbox>
-            
+        <PopBox>
+        
+            <Container>
+                <PopTitile>Busan Tasty Road</PopTitile>
+                {foodFullList}
+                
+                <Close onClick={()=>{setPopshow(false)}}>Back</Close>
+                <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange)}}/> Add Wish</AddWishbox>
+                
 
-        </Container>
+            </Container>
       
       
-        </>
+        </PopBox>
     )
     
 
