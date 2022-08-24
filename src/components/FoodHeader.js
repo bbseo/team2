@@ -57,7 +57,7 @@ const BusanTiltle = styled.div`
     -webkit-text-stroke: 0.0625rem #000;
     font-size: 2rem;
     font-family: 'Nanum Brush Script', cursive;
-    margin-top: 3.4375rem;
+    margin-top: 4rem;
     margin-left: 17.5rem;
     color: #8ca8f0;
 
@@ -71,7 +71,7 @@ const Wishbox =styled.div`
     font-family: 'Nanum Brush Script', cursive;
     font-style: italic;
     color: #8ca8f0;
-    margin-top:2rem;
+    margin-top:3rem;
     margin-left:0;
     cursor: pointer;
 `

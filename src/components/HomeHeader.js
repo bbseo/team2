@@ -9,7 +9,7 @@ const Logo = styled.div`
     display: inline-block;
     width: 12.5rem;
     text-align: center;
-    margin-left: 870px;
+    margin-left: 54rem;
     margin-top: 100px;
     border-radius: 15px;
 `;
@@ -45,7 +45,7 @@ const SearchBox = styled.div`
     border: 2px solid #A4B5E1;
     border-radius: 15px;
     box-shadow: 3px 3px 3px 3px gray;
-    margin-left: 637px;
+    margin-left: 38rem;
     margin-bottom: 150px;
     margin-top: 100px;
 `

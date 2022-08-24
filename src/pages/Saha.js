@@ -29,7 +29,7 @@ const SahaguTitle = styled.span`
 
     width: 17.5rem;
     height: 7.5;
-    margin-left: 35.3rem;
+    margin-left: 36.2rem;
     font-family: Inter;
     font-size: 3rem;
     font-weight: 900;
@@ -46,7 +46,7 @@ const SahaguLine = styled.div`
 
     width: 35rem;
     height: 2px;
-    margin: 1rem 0 1rem 22rem;
+    margin: 1rem 0 1rem 22.5rem;
     background-color: #a4b5e1;
 
 `;
@@ -55,7 +55,7 @@ const InBusan = styled.span`
 
     width: 10rem;
     height: 7.5rem;
-    margin-left: 35rem;
+    margin-left: 35.5rem;
     font-family: Inter;
     font-size: 1.8rem;
     font-weight: 400;
@@ -75,6 +75,7 @@ const ImgContainer = styled.div`
     height: 15rem;
     text-align: center;
     margin-top: 3rem;
+    margin-left: 1rem;
    
 `;
 

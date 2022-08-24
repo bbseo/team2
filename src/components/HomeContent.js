@@ -16,6 +16,7 @@ const Map = styled.img`
 
 const MapPin = styled.div`
     position: relative;
+    margin-left: 5rem;
 `;
 
 

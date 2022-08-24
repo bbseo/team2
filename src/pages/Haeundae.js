@@ -32,6 +32,7 @@ const ImgContainer = styled.div`
     height: 15rem;
     text-align: center;
     margin-top: 1rem;
+    margin-left: 1rem;
      
 `;
 
