@@ -16,6 +16,14 @@ const SearchFoodImg = styled.img`
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border-radius: 10%;
 `
+const NoResult = styled.span`
+    display: flex;
+    font-size:1.5rem;
+    width: 13.3rem;
+    font-family: 'Dalseo';
+    margin:auto;
+    padding-top:3rem;
+`
 
 const Span = styled.span`
     display: flex;
@@ -61,7 +69,7 @@ function SearchPage() {
     return(
         <div>
             <FoodHeader />
-            {includeFood}
+            {includeFood.length > 0 ? <>{includeFood}</> : <NoResult>검색 결과가 없습니다.</NoResult>}
         </div>
     )
 }
