@@ -9,7 +9,7 @@ const HeaderContainer = styled.div`
     width:  80rem;
     height: 10rem;
     margin-bottom: 0;
-    border-bottom: 0.1875rem dashed #aebde2;;
+    border-bottom: 0.1875rem solid #aebde2;;
     margin-right:auto;
     margin-left:auto;
     padding-bottom: 0.5rem;

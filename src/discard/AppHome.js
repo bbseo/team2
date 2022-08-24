@@ -4,8 +4,8 @@ import main from '../assets/main.png';
 import map from '../assets/map2.png';
 import {Link} from "react-router-dom"
 import pin from '../assets/pin.png';
-import Header from './FoodHeader'
-import Footer from "./Footer";
+import Header from '../components/FoodHeader'
+import Footer from "../components/Footer";
 
 const HOME= styled.div`
     position: relative;
