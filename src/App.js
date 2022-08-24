@@ -18,7 +18,15 @@ import Yeonjae from './pages/Yeonje';
 import Sasang from './pages/Sasang';
 
 function App() {
+  
+    // 위시리스트 콘텐츠 id 값
   const [wishid, setWishid]=useState();
+    // wishLists
+  const [wishItem, setWishItem] = useState([]);
+  
+  const onAdd = (myWish) => {
+    setWishItem([...wishItem, myWish]);
+  };
   
   return (
     <>
@@ -26,19 +34,19 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<MainHome/>} />
-        <Route path='/heaundae' element={<Heaundae setWishid={setWishid}/>} />
-        <Route path='/jingu' element={<Jingu setWishid={setWishid} />} /> 
-        <Route path='/wishList' element={<WishList wishid={wishid}/>} /> 
-        <Route path='/namgu' element={<Namgu setWishid={setWishid} />} /> 
-        <Route path='/suyoung' element={<Suyoung setWishid={setWishid} />} /> 
-        <Route path='/gangsegu' element={<Gangseo setWishid={setWishid} />} /> 
-        <Route path='/gijanggun' element={<Gijang setWishid={setWishid} />} /> 
-        <Route path='/yeongdo' element={<Yeongdo setWishid={setWishid} />} /> 
-        <Route path='/sahagu' element={<Saha setWishid={setWishid} />} /> 
-        <Route path='/junggu' element={<Junggu setWishid={setWishid} />} /> 
-        <Route path='/donglae' element={<Dongnae setWishid={setWishid} />} /> 
-        <Route path='/yeanjaegu' element={<Yeonjae setWishid={setWishid} />} /> 
-        <Route path='/sasanggu' element={<Sasang setWishid={setWishid} />} /> 
+        <Route path='/wishList' element={<WishList wishid={wishid} wishItem={wishItem} />} /> 
+        <Route path='/heaundae' element={<Heaundae setWishid={setWishid} onAdd={onAdd} />} />
+        <Route path='/jingu' element={<Jingu setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/namgu' element={<Namgu setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/suyoung' element={<Suyoung setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/gangsegu' element={<Gangseo setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/gijanggun' element={<Gijang setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/yeongdo' element={<Yeongdo setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/sahagu' element={<Saha setWishid={setWishid} onAdd={onAdd}/>} /> 
+        <Route path='/junggu' element={<Junggu setWishid={setWishid} onAdd={onAdd} />}  /> 
+        <Route path='/donglae' element={<Dongnae setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/yeanjaegu' element={<Yeonjae setWishid={setWishid} onAdd={onAdd} />} /> 
+        <Route path='/sasanggu' element={<Sasang setWishid={setWishid} onAdd={onAdd} />} /> 
         <Route path='/search' element={<SearchPage/>} />    
       </Routes>
     </Router>

@@ -4,7 +4,6 @@ import {MdSearch} from 'react-icons/md'
 import logo from "../assets/logo.png"
 import { Link } from "react-router-dom"
 
-
 const Logo = styled.div`
     display: inline-block;
     width: 12.5rem;
@@ -48,7 +47,7 @@ const SearchBox = styled.div`
     margin-left: 38rem;
     margin-bottom: 150px;
     margin-top: 100px;
-`
+`;
 
 const Input = styled.input`
     outline: none;
@@ -62,12 +61,7 @@ const Input = styled.input`
     BORDER-RIGHT: medium none;
     BORDER-TOP: medium none;
     text-align: center;
-    
-`
-
-
-
-
+`;
 
 function HomeHeader() {
 
@@ -86,15 +80,9 @@ function HomeHeader() {
             </Link>
         </SearchBox>
        
-
-        
         </div>
-    )
+    );
     
-   
-
 }
-
-
 
 export default HomeHeader;

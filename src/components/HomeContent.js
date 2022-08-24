@@ -1,13 +1,11 @@
 import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import map from "../assets/map.png"
 import pin from "../assets/pin.png"
-import { Link } from "react-router-dom";
-import { useState } from "react";
-
 
 const Map = styled.img`
-    
     width: 75rem;
     height: 43.75rem
     flex-grow: 0;
@@ -18,8 +16,6 @@ const MapPin = styled.div`
     position: relative;
     margin-left: 5rem;
 `;
-
-
 
 const Haeundae = styled.img`
     position: absolute;
@@ -37,21 +33,18 @@ const Haeundae = styled.img`
 `;
 
 const NameHaeundae = styled.div`
-  position: absolute;
-  width: 6rem;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 63.5rem;
-  bottom: 28.5rem;
-  color: black;
-  font-family: Sora;
-  font-weight: 1000;
+    position: absolute;
+    width: 6rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 63.5rem;
+    bottom: 28.5rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
   `;
 
-
-
 const Namgu = styled.img`
-    
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
@@ -65,20 +58,20 @@ const Namgu = styled.img`
         margin-top: 27rem;
     }
 `;
+
 const NameNamgu = styled.div`
-  position: absolute;
-  width: 3em;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 59.3rem;
-  bottom: 19rem;
-  color: black;
-  font-family: Sora;
-  font-weight: 1000;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 59.3rem;
+    bottom: 19rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
   `;
 
 const Jingu = styled.img`
-    
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
@@ -94,20 +87,19 @@ const Jingu = styled.img`
 `;
 
 const NameJingu = styled.div`
-  position: absolute;
-  width: 3em;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 54.8rem;
-  bottom: 23.3rem;
-  color: black;
-  font-family: Sora;
-  font-weight: 1000;
-  `;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 54.8rem;
+    bottom: 23.3rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
+`;
 
 
 const Suyoung = styled.img`
-    
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
@@ -123,20 +115,18 @@ const Suyoung = styled.img`
 `;
 
 const NameSuyoung = styled.div`
-  position: absolute;
-  width: 3em;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 60.2rem;
-  bottom: 24.5rem;
-  color: black;
-  font-family: Sora;
-  font-weight: 1000;
-  `;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 60.2rem;
+    bottom: 24.5rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
+`;
 
-
-  const Gangsegu = styled.img`
-    
+const Gangsegu = styled.img`
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
@@ -152,18 +142,18 @@ const NameSuyoung = styled.div`
 `;
 
 const NameGangsegu = styled.div`
-  position: absolute;
-  width: 3em;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 42rem;
-  top: 23rem;
-  color: black;
-  font-family: Sora;
-  font-weight: 1000;
-  `;
-  const Gijanggun = styled.img`
-    
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 42rem;
+    top: 23rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
+`;
+
+const Gijanggun = styled.img`
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
@@ -179,20 +169,19 @@ const NameGangsegu = styled.div`
 `;
 
 const NameGijanggun = styled.div`
-  position: absolute;
-  width: 3em;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 66.5rem;
-  top: 8rem;
-  color: black;
-  font-family: Sora;
-  font-weight: 1000;
-  `;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 66.5rem;
+    top: 8rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
+`;
 
 
-  const Yeongdo = styled.img`
-    
+const Yeongdo = styled.img`
     position: absolute;
     height: 2.5rem;
     weight: 2.5rem;
@@ -207,155 +196,156 @@ const NameGijanggun = styled.div`
     }
 `;
 const NameYeongdo = styled.div`
-  position: absolute;
-  width: 3em;
-  height: 3rem;
-  font-size: 1.5rem;
-  left: 57rem;
-  top: 30rem;
-  color: black;
-  font-family: Sora;
-  font-weight: 1000;
-  `;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 57rem;
+    top: 30rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
+`;
 
    
-  const Sahagu = styled.img`
-    
-  position: absolute;
-  height: 2.5rem;
-  weight: 2.5rem;
-  margin-left: 50rem;
-  margin-top: 32rem;
-  cursor: pointer;
-  &:hover{
-      width: 3.5em;
-      height: 3.5rem;
-      margin-left: 49.5rem;
-      margin-top: 32rem;
+const Sahagu = styled.img`
+    position: absolute;
+    height: 2.5rem;
+    weight: 2.5rem;
+    margin-left: 50rem;
+    margin-top: 32rem;
+    cursor: pointer;
+    &:hover{
+        width: 3.5em;
+        height: 3.5rem;
+        margin-left: 49.5rem;
+        margin-top: 32rem;
   }
 `;
-const NameSahagu = styled.div`
-position: absolute;
-width: 3em;
-height: 3rem;
-font-size: 1.5rem;
-left: 49rem;
-top: 30rem;
-color: black;
-font-family: Sora;
-font-weight: 1000;
-`;
 
+const NameSahagu = styled.div`
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 49rem;
+    top: 30rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
+`;
 
 const Junggu = styled.img`
-    
-  position: absolute;
-  height: 2.5rem;
-  weight: 2.5rem;
-  margin-left 54.2rem;
-  margin-top: 29.8rem;
-  cursor: pointer;
-  &:hover{
-      width: 3.5em;
-      height: 3.5rem;
-      margin-left 53.2rem;
-      margin-top: 29.5rem;
-  }
+    position: absolute;
+    height: 2.5rem;
+    weight: 2.5rem;
+    margin-left 54.2rem;
+    margin-top: 29.8rem;
+    cursor: pointer;
+    &:hover{
+        width: 3.5em;
+        height: 3.5rem;
+        margin-left 53.2rem;
+        margin-top: 29.5rem;
+    }
 `;
+
 const NameJunggu = styled.div`
-position: absolute;
-width: 3em;
-height: 3rem;
-font-size: 1.5rem;
-left: 53.5rem;
-top: 27.5rem;
-color: black;
-font-family: Sora;
-font-weight: 1000;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 53.5rem;
+    top: 27.5rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
 `;
 
 
 const Donglae = styled.img`
-    
-  position: absolute;
-  height: 2.5rem;
-  weight: 2.5rem;
-  margin-left 58rem;
-  margin-top: 16.7rem;
-  cursor: pointer;
-  &:hover{
-      width: 3.5em;
-      height: 3.5rem;
-      margin-left 57.5rem;
-      margin-top: 16.7em;
-  }
+    position: absolute;
+    height: 2.5rem;
+    weight: 2.5rem;
+    margin-left 58rem;
+    margin-top: 16.7rem;
+    cursor: pointer;
+    &:hover{
+        width: 3.5em;
+        height: 3.5rem;
+        margin-left 57.5rem;
+        margin-top: 16.7em;
+    }
 `;
+
 const NameDonglae = styled.div`
-position: absolute;
-width: 3em;
-height: 3rem;
-font-size: 1.5rem;
-left: 57rem;
-top: 14.8rem;
-color: black;
-font-family: Sora;
-font-weight: 1000;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 57rem;
+    top: 14.8rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
 `;
+
 const Yeanjaegu = styled.img`
-    
-  position: absolute;
-  height: 2.5rem;
-  weight: 2.5rem;
-  margin-left 58rem;
-  margin-top: 20.5rem;
-  cursor: pointer;
-  &:hover{
-      width: 3.5em;
-      height: 3.5rem;
-      margin-left 58rem;
-      margin-top: 20.5em;
-  }
+    position: absolute;
+    height: 2.5rem;
+    weight: 2.5rem;
+    margin-left 58rem;
+    margin-top: 20.5rem;
+    cursor: pointer;
+    &:hover{
+        width: 3.5em;
+        height: 3.5rem;
+        margin-left 58rem;
+        margin-top: 20.5em;
+    }
 `;
+
 const NameYeanjaegu = styled.div`
-position: absolute;
-width: 3em;
-height: 3rem;
-font-size: 1.5rem;
-left: 57.6rem;
-top: 18.7rem;
-color: black;
-font-family: Sora;
-font-weight: 1000;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 57.6rem;
+    top: 18.7rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
 `;
+
 const Sasanggu = styled.img`
-    
-  position: absolute;
-  height: 2.5rem;
-  weight: 2.5rem;
-  margin-left 50rem;
-  margin-top: 24rem;
-  cursor: pointer;
-  &:hover{
-      width: 3.5em;
-      height: 3.5rem;
-      margin-left 49.5rem;
-      margin-top: 24rem;
-  }
+    position: absolute;
+    height: 2.5rem;
+    weight: 2.5rem;
+    margin-left 50rem;
+    margin-top: 24rem;
+    cursor: pointer;
+    &:hover{
+        width: 3.5em;
+        height: 3.5rem;
+        margin-left 49.5rem;
+        margin-top: 24rem;
+    }
 `;
+
 const NameSasanggu= styled.div`
-position: absolute;
-width: 3em;
-height: 3rem;
-font-size: 1.5rem;
-left: 49.5rem;
-top: 22rem;
-color: black;
-font-family: Sora;
-font-weight: 1000;
+    position: absolute;
+    width: 3em;
+    height: 3rem;
+    font-size: 1.5rem;
+    left: 49.5rem;
+    top: 22rem;
+    color: black;
+    font-family: Sora;
+    font-weight: 1000;
 `;
 
 function HomeContent() {
-    const [showValue, setShowvalue]=useState(false);
+    const [showvalue1, setShowValue1]=useState(false);
     const [showValue2, setShowvalue2]=useState(false);
     const [showValue3, setShowvalue3]=useState(false);
     const [showValue4, setShowvalue4]=useState(false);
@@ -370,9 +360,9 @@ function HomeContent() {
     return(
         <MapPin>
             <Link to={"heaundae"}> 
-                <Haeundae src={pin}  onMouseOver={()=>setShowvalue(true)} onMouseOut={()=>setShowvalue(false)}/>
+                <Haeundae src={pin}  onMouseOver={()=>setShowValue1(true)} onMouseOut={()=>setShowValue1(false)}/>
             </Link>
-            { showValue && <NameHaeundae>해운대구</NameHaeundae> }
+            { showvalue1 && <NameHaeundae>해운대구</NameHaeundae> }
             <Link to={"jingu"}>
                 <Jingu src={pin} onMouseOver={()=>setShowvalue2(true)} onMouseOut={()=>setShowvalue2(false)}/>
             </Link>
@@ -420,8 +410,7 @@ function HomeContent() {
             { showValue12 && <NameSasanggu>사상구</NameSasanggu> }
             <Map src={map} /> 
         </MapPin>
-    )
+    );
 }
-
 
 export default HomeContent;

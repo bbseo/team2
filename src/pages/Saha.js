@@ -7,26 +7,21 @@ import PopImfo from "./PopInfo";
 import FoodHeader from '../components/FoodHeader';
 
 const Container= styled.div`
-
     position: relative;
     width: 80rem; 
     background-color: #fff;
     border 0.2rem solid #aebde2;
-    margin: auto;
-  
+    margin: auto; 
 `;
   
-const SahaguLogo = styled.img`
-    
+const SahaguLogo = styled.img`   
     display:block;
     width: 45rem;
     height: 29.25rem;
     margin: auto;   
-
 `;
 
 const SahaguTitle = styled.span`
-
     width: 17.5rem;
     height: 7.5;
     margin-left: 36.2rem;
@@ -39,20 +34,16 @@ const SahaguTitle = styled.span`
     letter-spacing: normal;
     text-align: center;
     color: #26416b;
-
 `;
 
 const SahaguLine = styled.div`
-
     width: 35rem;
     height: 2px;
     margin: 1rem 0 1rem 22.5rem;
     background-color: #a4b5e1;
-
 `;
 
 const InBusan = styled.span`
-
     width: 10rem;
     height: 7.5rem;
     margin-left: 35.5rem;
@@ -65,22 +56,18 @@ const InBusan = styled.span`
     letter-spacing: normal;
     text-align: center;
     color: #26416b;
-    
 `;
 
 const ImgContainer = styled.div`
-
     display: inline-block;
     width: 80rem;
     height: 15rem;
     text-align: center;
     margin-top: 3rem;
     margin-left: 1rem;
-   
 `;
 
 const FoodImg = styled.img`
-
     width: 10rem;
     height: 10rem;
     cursor: pointer;
@@ -90,11 +77,9 @@ const FoodImg = styled.img`
     &:hover{
         border dashed #8ca8f0;
     }
-
 `;
 
 const MoreButton = styled.span`
-
     display: block;
     width: 140px;
     height: 54px;
@@ -110,27 +95,19 @@ const MoreButton = styled.span`
     margin: auto;
     cursor: pointer;
     margin-bottom: 1rem;
-
 `;
 
 
-function Saha({setWishid}) {
+function Saha({setWishid, onAdd}) {
 
     const [foodsLists, setFoodLists] = useState(dataFoods);
 
     const location = '사하구';
 
-    const food = foodsLists.filter(
-        (foodlist) => (foodlist.구군 === location)
-    );
+    const food = foodsLists.filter((foodlist) => (foodlist.구군 === location));
 
-    const foodImg = food.map((data)=>(
-        data.썸네일이미지URL
-    ));
-
-    const foodId = food.map((data)=>(
-        data.콘텐츠ID
-    ));
+    const foodImg = food.map((data)=>(data.썸네일이미지URL));
+    const foodId = food.map((data)=>(data.콘텐츠ID));
 
     const [PopShow, setPopshow ]=useState(false);
 
@@ -193,7 +170,7 @@ function Saha({setWishid}) {
 
                 </Container>
 
-                {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid}/>}
+                {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid} onAdd={onAdd} />}
         
             </div>
         

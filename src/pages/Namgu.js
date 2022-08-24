@@ -7,37 +7,30 @@ import PopImfo from "./PopInfo";
 import FoodHeader from '../components/FoodHeader';
 
 const Container= styled.div`
-
     position: relative;
     width: 80rem; 
     background-color: #fff;
     border 0.2rem solid #aebde2;
     margin: auto;
-
 `;
   
 const NamguLogo = styled.img`
-
     display:block;
     width: 42rem;
     height: 29.25rem;
     margin: auto;
-
 `;
 
 const ImgContainer = styled.div`
-
     display: inline-block;
     width: 80rem;
     height: 15rem;
     text-align: center;
     margin-top: 1rem;
-    margin-left: 1rem;
-   
+    margin-left: 1rem;  
 `;
 
 const FoodImg = styled.img`
-
     width: 10rem;
     height: 10rem;
     cursor: pointer;
@@ -47,11 +40,9 @@ const FoodImg = styled.img`
     &:hover{
         border dashed #8ca8f0;
     }
-
 `;
 
 const MoreButton = styled.span`
-
     display: block;
     width: 140px;
     height: 54px;
@@ -67,27 +58,19 @@ const MoreButton = styled.span`
     margin: auto;
     cursor: pointer;
     margin-bottom: 1rem;
-
 `;
 
 
-function Namgu({setWishid}) {
+function Namgu({setWishid, onAdd}) {
 
     const [foodsLists, setFoodLists] = useState(dataFoods);
 
     const location = '남구';
 
-    const food = foodsLists.filter(
-        (foodlist) => (foodlist.구군 == location)
-    );
+    const food = foodsLists.filter((foodlist) => (foodlist.구군 == location));
 
-    const foodImg = food.map((data)=>(
-        data.썸네일이미지URL
-    ));
-
-    const foodId = food.map((data)=>(
-        data.콘텐츠ID
-    ));
+    const foodImg = food.map((data)=>(data.썸네일이미지URL));
+    const foodId = food.map((data)=>(data.콘텐츠ID));
     
     const [PopShow, setPopshow ]=useState(false);
 
@@ -149,7 +132,7 @@ function Namgu({setWishid}) {
 
                 </Container>
 
-                {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid}/>}
+                {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid} onAdd={onAdd} />}
             
             </div>
         

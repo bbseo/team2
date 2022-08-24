@@ -1,10 +1,8 @@
 import React from 'react';
-import logo from '../assets/logo.png';
-import styled from "styled-components";
-import StarRating from './StatRating';
 import { Link } from "react-router-dom"
-import { useState } from 'react';
-import dataFoods from '../dataBase/FoodLists.json';
+import styled from "styled-components";
+import logo from '../assets/logo.png';
+import StarRating from './StatRating';
 
 const Container= styled.div`
     position: relative;
@@ -66,7 +64,6 @@ const BusanTiltle = styled.div`
     margin-top: 3.4375rem;
     margin-left: 35rem;
     color: #8ca8f0;
-
 `;
 
 const WishBox = styled.div`
@@ -123,7 +120,7 @@ const WishAddr = styled.div`
 
 const WishNumber = styled.div`
     display: inline-block;
-    padding: 0.5rem;
+    padding: 0.4rem;
     border-radius: 10px;
 `;
 
@@ -135,94 +132,48 @@ const WishTime = styled.div`
 
 const WishStar = styled.div`
     display: inline-block;
-
 `;
 
 const WishComment = styled.input`
     width: 69.5rem;
     height:5rem;
     margin-left: 1rem;
-    margin-top: 2.6rem;
+    margin-top: 2rem;
     border-radius: 10px;
     background-color: lightgray;
 `;
 
 
 
-function WishList({wishid}) {
+function WishList({wishItem}) {
    
-    const [foodsLists, setTest] = useState(dataFoods);
-    // let guGun = '해운대구';
+    return(
+        <Container>
+            <HeaderContainer>
+                <Link to={"/"}>
+                <Logo><Dynamic>Dynamic</Dynamic><Boat src={logo}/><Busan>Busan</Busan></Logo>
+                </Link>
+                <BusanTiltle>My WishList</BusanTiltle>
+            </HeaderContainer>
 
-    const checkId = wishid;
+            {wishItem.map((food, idx) => (
+            <WishBox key={idx}>
+                    <WishThum src ={food.이미지}/>
+                <WishText>
+                    <WishTitle>상호명 : {food.상호명}</WishTitle>
+                    <WishMenu>대표메뉴 : {food.대표메뉴}</WishMenu>
+                    <WishAddr>주소 : {food.주소}</WishAddr>
+                    <WishNumber>연락처 : {food.연락처}</WishNumber>
+                    <WishTime>운영시간 : {food.운영시간}</WishTime><br />
+                    &nbsp;별점 : <WishStar><StarRating /></WishStar>
+                    <WishComment type="text"></WishComment>
+                </WishText>
+            </WishBox>
+            ))}
 
-    const food = foodsLists.filter(
-        (foodlist) => (foodlist.콘텐츠ID == checkId)
+        </Container>
+
     );
-    console.log(food)
-
-    const testImg = food.map((test)=>(
-        test.썸네일이미지URL
-    ))
-    const testTitle= food.map((test)=>(
-            test.콘텐츠명
-        ))
-    const testMenu= food.map((test)=>(
-            test.대표메뉴
-        ))
-    const testAddr= food.map((test)=>(
-            test.주소
-        ))
-    const testNumber= food.map((test)=>(
-            test.연락처
-        ))
-    const testTime= food.map((test)=>(
-            test['운영 및 시간']
-        ))
-
-    const [wish,setWish] = useState([]);
-
-    // const foods = food.
-
-
-
-return(
-    <Container>
-        <HeaderContainer>
-            <Link to={"/"}>
-            <Logo><Dynamic>Dynamic</Dynamic><Boat src={logo}/><Busan>Busan</Busan></Logo>
-            </Link>
-            <BusanTiltle>My WishList</BusanTiltle>
-        </HeaderContainer>
-
-        <WishBox>
-            <WishThum src={testImg}/>
-            <WishText>
-                <WishTitle>상호명: {testTitle}</WishTitle>
-                <WishMenu>대표메뉴 :{testMenu} </WishMenu>
-                <WishAddr>주소 : {testAddr}</WishAddr>
-                <WishNumber>전화번호 : {testNumber} </WishNumber>
-                <WishTime>운영 및 시간 : {testTime}</WishTime>
-                별점 : <WishStar><StarRating /></WishStar>
-                <WishComment type="text"></WishComment>
-            </WishText>
-        </WishBox>
-
-        {/* <WishBox>
-            <WishThum src={meat}/>
-            <WishText>
-                
-            </WishText>
-        </WishBox>
-
-        <WishBox>
-            <WishThum src={meat}/>
-            <WishText></WishText>
-        </WishBox> */}
-    </Container>
-
-)
-
 
 }
 export default WishList;

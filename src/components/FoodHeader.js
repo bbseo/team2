@@ -4,6 +4,7 @@ import logo from '../assets/logo.png';
 import styled from "styled-components";
 import {Link} from "react-router-dom"
 import Redheart from '../assets/Redheart.png'
+
 const HeaderContainer = styled.div`
     display:flex;
     width:  80rem;
@@ -13,7 +14,6 @@ const HeaderContainer = styled.div`
     margin-right:auto;
     margin-left:auto;
     padding-bottom: 0.5rem;
-
 `;
 
 const Logo = styled.div`
@@ -60,7 +60,6 @@ const BusanTiltle = styled.div`
     margin-top: 4rem;
     margin-left: 17.5rem;
     color: #8ca8f0;
-
 `;
 
 const Wishbox =styled.div`
@@ -74,35 +73,30 @@ const Wishbox =styled.div`
     margin-top:3rem;
     margin-left:0;
     cursor: pointer;
-`
+`;
 
 const RedHeart = styled.img`
-width:2rem;
-height:2rem;
-margin:auto;
-
-
-
+    width:2rem;
+    height:2rem;
+    margin:auto;
 `;
 
 function FoodHeader() {
     
-return(
-    
-    <HeaderContainer>
-        <Link to={"/"}>
-        <Logo><Dynamic>Dynamic</Dynamic><Boat src={logo}/><Busan>Busan</Busan></Logo>
-        </Link>
-        <BusanTiltle>Busan Tasty Road</BusanTiltle>
+    return(
+        
+        <HeaderContainer>
+            <Link to={"/"}>
+            <Logo><Dynamic>Dynamic</Dynamic><Boat src={logo}/><Busan>Busan</Busan></Logo>
+            </Link>
+            <BusanTiltle>Busan Tasty Road</BusanTiltle>
 
-        <Link to={"../wishList"} style={{ textDecoration: 'none' }}>
-        <Wishbox><RedHeart src={Redheart}/> My Wish</Wishbox>
-        </Link>
-    </HeaderContainer>
-    
-
-)
-
+            <Link to={"../wishList"} style={{ textDecoration: 'none' }}>
+            <Wishbox><RedHeart src={Redheart}/> My Wish</Wishbox>
+            </Link>
+        </HeaderContainer>
+        
+    );
 
 }
 
