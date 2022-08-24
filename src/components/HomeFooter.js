@@ -7,7 +7,8 @@ const Boat = styled.img`
     height: 2.8125rem;
     margin: 0 0 0.688 4rem;
     display: flex;
-`
+`;
+
 const TeamName = styled.span`
     text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
     display: flex;
@@ -23,7 +24,7 @@ const TeamName = styled.span`
     letter-spacing: normal;
     text-align: center;
     color: #000;
-`
+`;
 
 const Name = styled.span`
     text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
@@ -39,17 +40,18 @@ const Name = styled.span`
     letter-spacing: normal;
     text-align: center;
     color: #000;
-`
+`;
 
 function HomeFooter() {
     return(
         <div>
+
             <Boat src={boat} />
             <TeamName>DouZone&nbsp;&nbsp;Team2&nbsp;&nbsp;Mini Project</TeamName>
             <Name>황동하&nbsp;&nbsp;김재선&nbsp;&nbsp;배병서&nbsp;&nbsp;이광석</Name>
 
         </div>
-    )
+    );
 }
 
 export default HomeFooter;

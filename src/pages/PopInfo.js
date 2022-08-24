@@ -18,14 +18,13 @@ const Container= styled.div`
     position: relative;
     width: 25rem;
     height: 40rem;
-   
     background-color: #fff;
     border 0.2rem solid #aebde2;
     margin: auto;
     margin-top: 3rem;
     border-radius: 20%;
-    
 `;
+
 const PopTitile = styled.div`
     width: 20rem;
     height: 3rem;
@@ -44,16 +43,10 @@ const Popimg = styled.img`
     height: 12rem;
     margin: auto;
     margin-top: 2rem;
-    
     border-radius: 5%;
-    
-
 `;
 
-
-
 const Close= styled.button`
-
     width: 15rem;
     height: 2rem;
     margin-left: 5rem;
@@ -66,9 +59,7 @@ const Close= styled.button`
     border: 0;
     border-radius: 20%;
     cursor: pointer;
-
-`
-;
+`;
 
 const AddWishbox =styled.div`
     position: absolute;
@@ -82,9 +73,7 @@ const AddWishbox =styled.div`
     text-align:center;
     bottom: 2rem;
     left: 15rem;
-    
-    
-`
+`;
 
 const RedHeart = styled.img`
     width:1rem;
@@ -102,16 +91,18 @@ const Text = styled.p`
 
 
 
-function PopImfo({setPopshow, sendId, setWishid}) {
+function PopImfo({setPopshow, sendId, setWishid, onAdd, onDelete, wishItem }) {
 
     const [foodsLists, setFoodLists] = useState(dataFoods);
-    const checkId = sendId;
 
+    const  checkId = sendId;
+    
     const food = foodsLists.filter(
         (foodlist) => (foodlist.콘텐츠ID == checkId)
-        )
-        const foodFullList = food.map(
-            (foodlist)  =>(  
+    );
+
+    const foodFullList = food.map(
+        (foodlist)  =>(  
           <List> 
                 <Popimg  src={foodlist.이미지URL} />
                 <Text>제목 : {foodlist.콘텐츠명} </Text> 
@@ -120,38 +111,44 @@ function PopImfo({setPopshow, sendId, setWishid}) {
                 <Text>운영 및 시간 :{foodlist['운영 및 시간']}</Text> 
                 <Text>연락처 : {foodlist.연락처} </Text>
           </List>)
-          )
+    );
                 
-               
+    const foodImg = food.map((data)=>(data.썸네일이미지URL));
+    const foodTitle= food.map((data)=>(data.콘텐츠명));
+    const foodMenu= food.map((data)=>(data.대표메뉴));
+    const foodAddr= food.map((data)=>(data.주소));
+    const foodNumber= food.map((data)=>(data.연락처));
+    const foodTime= food.map((data)=>(data['운영 및 시간']));
+    const heartcolor = food.map((data) =>(data.위시리스트))
+    const heartId = food.map((data) => (data.콘텐츠ID))
+
+    const myWish = 
+        {   이미지: foodImg[0],
+            상호명:foodTitle[0],
+            대표메뉴:foodMenu[0],
+            주소 : foodAddr[0],
+            연락처: foodNumber[0],
+            운영시간: foodTime[0],
+            위시리스트: heartcolor[0],
+            Id: heartId[0]
+        };     
             
-        const [heartChange, setHeartChange]=useState(true);
+    const [heartChange, setHeartChange]=useState(false);
 
-        
-        
-
-    return(
+    return (
         <PopBox>
-        
             <Container>
                 <PopTitile>Busan Tasty Road</PopTitile>
                 {foodFullList}
-                
-                <Close onClick={()=>{setPopshow(false)}}>Back</Close>
-                <AddWishbox><RedHeart src={heartChange?Blackheart:Redheart} onClick={() => {setHeartChange(!heartChange) ; setWishid(checkId)} }/> Add Wish</AddWishbox>
-                
 
+                <Close onClick={() => { setPopshow(false) }}>Back</Close>
+                    {(wishItem?.filter(item => item.Id === checkId))?.length > 0? 
+                    (<AddWishbox><RedHeart src={Redheart} onClick={() => { setHeartChange(!heartChange); setWishid(checkId); onDelete(myWish); }} /> Add Wish</AddWishbox>):
+                    (<AddWishbox><RedHeart src={Blackheart} onClick={() => { setHeartChange(!heartChange); setWishid(checkId); onAdd(myWish); }} /> Add Wish</AddWishbox>)}
             </Container>
-      
-      
         </PopBox>
     )
-    
 
-
-
-
-};
-
-
+}
 
 export default PopImfo;

@@ -18,7 +18,22 @@ import Yeonjae from './pages/Yeonje';
 import Sasang from './pages/Sasang';
 
 function App() {
+  
+    // 위시리스트 콘텐츠 id 값
   const [wishid, setWishid]=useState();
+    // wishLists
+  const [wishItem, setWishItem] = useState([]);
+  
+    // 추가 기능
+  const onAdd = (myWish) => {
+    setWishItem([...wishItem, myWish]);
+  };
+
+  // 삭제(중복 방지) 및 하트 유지
+  const onDelete = (newwish) => {
+    const filteredItem = wishItem.filter(item => item.Id !== newwish.Id);
+    setWishItem(filteredItem);
+  }
   
   return (
     <>
@@ -26,19 +41,19 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<MainHome/>} />
-        <Route path='/heaundae' element={<Heaundae setWishid={setWishid}/>} />
-        <Route path='/jingu' element={<Jingu setWishid={setWishid} />} /> 
-        <Route path='/wishList' element={<WishList wishid={wishid}/>} /> 
-        <Route path='/namgu' element={<Namgu setWishid={setWishid} />} /> 
-        <Route path='/suyoung' element={<Suyoung setWishid={setWishid} />} /> 
-        <Route path='/gangsegu' element={<Gangseo setWishid={setWishid} />} /> 
-        <Route path='/gijanggun' element={<Gijang setWishid={setWishid} />} /> 
-        <Route path='/yeongdo' element={<Yeongdo setWishid={setWishid} />} /> 
-        <Route path='/sahagu' element={<Saha setWishid={setWishid} />} /> 
-        <Route path='/junggu' element={<Junggu setWishid={setWishid} />} /> 
-        <Route path='/donglae' element={<Dongnae setWishid={setWishid} />} /> 
-        <Route path='/yeanjaegu' element={<Yeonjae setWishid={setWishid} />} /> 
-        <Route path='/sasanggu' element={<Sasang setWishid={setWishid} />} /> 
+        <Route path='/wishList' element={<WishList wishid={wishid} wishItem={wishItem} />} /> 
+        <Route path='/heaundae' element={<Heaundae setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} />
+        <Route path='/jingu' element={<Jingu setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/namgu' element={<Namgu setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/suyoung' element={<Suyoung setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/gangsegu' element={<Gangseo setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/gijanggun' element={<Gijang setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/yeongdo' element={<Yeongdo setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/sahagu' element={<Saha setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem}/>} /> 
+        <Route path='/junggu' element={<Junggu setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />}  /> 
+        <Route path='/donglae' element={<Dongnae setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/yeanjaegu' element={<Yeonjae setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
+        <Route path='/sasanggu' element={<Sasang setWishid={setWishid} onAdd={onAdd} onDelete={onDelete} wishItem={wishItem} />} /> 
         <Route path='/search' element={<SearchPage/>} />    
       </Routes>
     </Router>
