@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import dataFoods from "../dataBase/FoodLists.json";
+import dataFoods from '../dataBase/FoodLists.json';
 import styled from "styled-components";
-import jingu from "../assets/jingu.png"
+import SahaguImg from "../assets/sahagu.png"
 import Footer from "./Footer";
 import PopImfo from "./PopImfo";
 import FoodHeader from './FoodHeader';
@@ -12,21 +12,19 @@ const Container= styled.div`
     background-color: #fff;
     border 0.2rem dashed #aebde2;
     margin: auto;
-  
-    
 `;
   
-const JinguLogo = styled.img`
+const SahaguLogo = styled.img`
     display:block;
-    width: 35.5rem;
-    height: 18rem;
-    margin: auto;
-    ` ;
+    width: 45rem;
+    height: 29.25rem;
+    margin: auto;   
+`;
 
-const JinguTitle = styled.span`
+const SahaguTitle = styled.span`
     width: 17.5rem;
     height: 7.5;
-    margin-left: 35.5rem;
+    margin-left: 33.8rem;
     font-family: Inter;
     font-size: 3rem;
     font-weight: 900;
@@ -36,14 +34,14 @@ const JinguTitle = styled.span`
     letter-spacing: normal;
     text-align: center;
     color: #26416b;
-`
+`;
 
-const JinguLine = styled.div`
+const SahaguLine = styled.div`
     width: 35rem;
     height: 2px;
     margin: 1rem 0 1rem 22rem;
     background-color: #a4b5e1;
-`
+`;
 
 const InBusan = styled.span`
     width: 10rem;
@@ -58,24 +56,15 @@ const InBusan = styled.span`
     letter-spacing: normal;
     text-align: center;
     color: #26416b;
-`
-
-
-
-
+`;
 
 const ImgContainer = styled.div`
     display: inline-block;
     width: 80rem;
     height: 15rem;
     text-align: center;
-    margin-top: 1rem;
-    
-    
-
-    
-    
-`
+    margin-top: 3rem;
+`;
 
 const FoodImg = styled.img`
     width: 10rem;
@@ -87,7 +76,8 @@ const FoodImg = styled.img`
     &:hover{
         border dashed #8ca8f0;
     }
-`
+`;
+
 const MoreButton = styled.span`
     display: block;
     width: 140px;
@@ -104,56 +94,48 @@ const MoreButton = styled.span`
     margin: auto;
     cursor: pointer;
     margin-bottom: 1rem;
-`
+`;
 
 
-function Jingu({setWishid, setWishTest, onAdd}) {
+function Sahagu({setWishid, setWishTest, onAdd}) {
 
 const [foodsLists, setTest] = useState(dataFoods);
 
 
 
 
-let guGun = '부산진구';
-
+let guGun = '사하구';
 let food = foodsLists.filter(
   (foodlist) => (foodlist.구군 == guGun)
-)
-
-
+);
 
 const testFood = food.map((test)=>(
   test.썸네일이미지URL
-))
+));
+
 const testId = food.map((test)=>(
     test.콘텐츠ID
 ))
-
-
-
-  
   
 const [PopShow, setPopshow ]=useState(false);
 const [sendId, setSendId] = useState(testId);
+
 // 더 보기 음식 리스트
 const [ foodShow, setFoodShow ] = useState(false);
 
 // 더 보기 버튼 이름 변경
 const [ button, setButton ] = useState('MORE');
 
-
-
     return(
-       
       <div>
-    <Container>
+        <Container>
         
-          <FoodHeader/>
-          <JinguLogo src={jingu}/>
-          <JinguTitle>Jingu</JinguTitle>
-          <JinguLine />
+        <FoodHeader/>
+        <SahaguLogo src={SahaguImg}/>
+        <SahaguTitle>Sahagu</SahaguTitle>
+          <SahaguLine />
           <InBusan>IN BUSAN</InBusan>
-          {/* 음식 1~3 */}
+        {/* 음식 1~3 */}
         <ImgContainer>
         {testFood.map((food, idx) => {
                 if (idx < 3) {
@@ -186,11 +168,9 @@ const [ button, setButton ] = useState('MORE');
                 setFoodShow((prev) => !prev)
                 button == 'CLOSE' ? setButton('MORE') : setButton('CLOSE')
                 }}>{button}</MoreButton>
-      
+        <Footer/>
 
-          <Footer/>
-
-      </Container>
+    </Container>
 
       {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid} setWishTest={setWishTest} onAdd={onAdd}/>}
       
@@ -204,4 +184,4 @@ const [ button, setButton ] = useState('MORE');
 
 
 
-export default Jingu;
+export default Sahagu;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { foodSearchValue } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import dataFoods from "../dataBase/FoodLists.json";
@@ -17,6 +16,14 @@ const SearchFoodImg = styled.img`
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border-radius: 10%;
 `
+const NoResult = styled.span`
+    display: flex;
+    font-size:1.5rem;
+    width: 13.3rem;
+    font-family: 'Dalseo';
+    margin:auto;
+    padding-top:3rem;
+`
 
 const Span = styled.span`
     display: flex;
@@ -27,16 +34,6 @@ const Span = styled.span`
 const List = styled.li`
     list-style: none;
 `
-
-const NoResult = styled.span`
-    display: flex;
-    font-size:1.5rem;
-    width: 13.3rem;
-    font-family: 'Dalseo';
-    margin:auto;
-    padding-top:3rem;
-`
-
 
 function SearchPage() {
 
@@ -51,6 +48,7 @@ function SearchPage() {
     
     // 검색어 포함
     const filterFood = foodsLists.filter((include) => include.콘텐츠명.includes(searchValue) || include.대표메뉴.includes(searchValue))
+    
 
     const includeFood = filterFood.map(
         (menu) => (
@@ -63,6 +61,10 @@ function SearchPage() {
                 <Span>연락처 : {menu.연락처} </Span>
             </List>
         ))
+
+
+
+
 
     return(
         <div>

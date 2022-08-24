@@ -1,12 +1,11 @@
 import React from 'react';
 import logo from '../assets/logo.png';
-import meat from '../assets/meat.jpg';
 import styled from "styled-components";
 import StarRating from './StatRating';
 import { Link } from "react-router-dom"
 import { useState } from 'react';
 import dataFoods from '../dataBase/FoodLists.json';
-
+import App from '../App';
 const Container= styled.div`
     position: relative;
     width: 105rem;
@@ -150,44 +149,43 @@ const WishComment = styled.input`
 
 
 
-function WishList({wishid}) {
+function WishList({wishid, wishItem}) {
    
     const [foodsLists, setTest] = useState(dataFoods);
     // let guGun = '해운대구';
 
     const checkId = wishid;
 
-    const food = foodsLists.filter(
-        (foodlist) => (foodlist.콘텐츠ID == checkId)
-    );
-    console.log(food)
+    // const food = wishItem.filter(
+    //     (foodlist) => (foodlist.콘텐츠ID == checkId)
+    // );
+    console.log(wishItem)
 
-    const testImg = food.map((test)=>(
-        test.썸네일이미지URL
-    ))
-    const testTitle= food.map((test)=>(
-            test.콘텐츠명
-        ))
-    const testMenu= food.map((test)=>(
-            test.대표메뉴
-        ))
-    const testAddr= food.map((test)=>(
-            test.주소
-        ))
-    const testNumber= food.map((test)=>(
-            test.연락처
-        ))
-    const testTime= food.map((test)=>(
-            test['운영 및 시간']
-        ))
+    // const testImg = food.map((test)=>(
+    //     test.썸네일이미지URL
+    // ))
+    // const testTitle= food.map((test)=>(
+    //         test.콘텐츠명
+    //     ))
+    // const testMenu= food.map((test)=>(
+    //         test.대표메뉴
+    //     ))
+    // const testAddr= food.map((test)=>(
+    //         test.주소
+    //     ))
+    // const testNumber= food.map((test)=>(
+    //         test.연락처
+    //     ))
+    // const testTime= food.map((test)=>(
+    //         test['운영 및 시간']
+    //     ))
 
-    const [wish,setWish] = useState([]);
-
-    // const foods = food.
-
-
+    // const [wish,setWish] = useState(food);
+    
 
 return(
+   
+
     <Container>
         <HeaderContainer>
             <Link to={"/"}>
@@ -196,8 +194,7 @@ return(
             <BusanTiltle>My WishList</BusanTiltle>
         </HeaderContainer>
 
-        <WishBox>
-            <WishThum src={testImg}/>
+            {/* <WishThum src={testImg}/>
             <WishText>
                 <WishTitle>상호명: {testTitle}</WishTitle>
                 <WishMenu>대표메뉴 :{testMenu} </WishMenu>
@@ -206,9 +203,24 @@ return(
                 <WishTime>운영 및 시간 : {testTime}</WishTime>
                 별점 : <WishStar><StarRating /></WishStar>
                 <WishComment type="text"></WishComment>
-            </WishText>
-        </WishBox>
+            </WishText> */}
 
+        {wishItem.map((food, idx) => (
+            <WishBox key={idx}>
+                    <WishThum src ={food.이미지}/>
+                <WishText>
+                    <WishTitle>{food.상호명}</WishTitle>
+                    <WishMenu>{food.대표메뉴}</WishMenu>
+                    <WishAddr>{food.주소}</WishAddr>
+                    <WishNumber>{food.연락처}</WishNumber>
+                    <WishTime>{food.운영시간}</WishTime>
+                    별점 : <WishStar><StarRating /></WishStar>
+                    <WishComment type="text"></WishComment>
+                </WishText>
+            </WishBox>
+        ))}
+
+        
         {/* <WishBox>
             <WishThum src={meat}/>
             <WishText>
@@ -221,7 +233,7 @@ return(
             <WishText></WishText>
         </WishBox> */}
     </Container>
-
+    
 )
 
 

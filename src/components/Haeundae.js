@@ -49,24 +49,28 @@ const FoodImg = styled.img`
 const MoreButton = styled.span`
     display: block;
     width: 140px;
-    height: 60px;
+    height: 54px;
     font-family: 'Dalseo';
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
+    line-height:54px;
     vertical-align: middle;
     color: #000;
-    background: #8ca8f0;
+    border: 0.3rem solid #8ca8f0;
+    border-radius: 25%;
     margin: auto;
+    cursor: pointer;
+    margin-bottom: 1rem;
 `
 
 
-function Haeundae({setWishid}) {
+function Haeundae({setWishid, setWishTest, onAdd}) {
 
 const [foodsLists, setTest] = useState(dataFoods);
 
 
-// console.log(foodsLists)
+
 
 let guGun = '해운대구';
 
@@ -142,7 +146,7 @@ const [ button, setButton ] = useState('MORE');
 
     </Container>
 
-      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid}/>}
+      {PopShow && <PopImfo sendId={sendId} setPopshow={setPopshow} setWishid={setWishid} setWishTest={setWishTest} onAdd={onAdd} />}
       
    
   </div>
