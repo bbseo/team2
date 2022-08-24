@@ -104,10 +104,10 @@ const Text = styled.p`
 
 function PopImfo({setPopshow, sendId, setWishid}) {
 
-    const [foodsLists, setTest] = useState(dataFoods);
+    const [foodsLists, setFoodLists] = useState(dataFoods);
     const checkId = sendId;
 
-    let food = foodsLists.filter(
+    const food = foodsLists.filter(
         (foodlist) => (foodlist.콘텐츠ID == checkId)
         )
         const foodFullList = food.map(
